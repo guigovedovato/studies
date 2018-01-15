@@ -1,0 +1,12 @@
+﻿#Brigde
+- Connecting components together through abstractions.
+- A mechanism that decouples an interface (hierarchy) from an implementation (hierarchy).
+
+##Motivation
+- Bridge prevents a 'Cartesian product' complexity explosion;
+- Bridge pattern avoids the entity explosion.
+
+##Summary
+- Decouple abstraction from implementation;
+- Both can exist as hierarchies;
+- A stronger form of encapsulation.

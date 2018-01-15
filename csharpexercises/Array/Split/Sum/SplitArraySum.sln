@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitArraySum", "SplitArraySum\SplitArraySum.csproj", "{ADA44175-8C35-46D5-A725-50ABD59E1A03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADA44175-8C35-46D5-A725-50ABD59E1A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA44175-8C35-46D5-A725-50ABD59E1A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA44175-8C35-46D5-A725-50ABD59E1A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA44175-8C35-46D5-A725-50ABD59E1A03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F7AC8C54-B1E9-4B79-9294-B27ED6140487}
+	EndGlobalSection
+EndGlobal

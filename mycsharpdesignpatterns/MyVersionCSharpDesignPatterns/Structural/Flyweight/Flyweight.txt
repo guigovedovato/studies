@@ -1,0 +1,10 @@
+﻿#Flyweight
+- Space optimization.
+- A space optimization technique that lets us use less memory by storing externally the data associated with similar objects.
+
+##Motivation
+- Avoid redundancy when storing data.
+
+##Summary
+- Store common data externally;
+- Define the idea of 'ranges' on homogeneous collections and store data related to those ranges.
