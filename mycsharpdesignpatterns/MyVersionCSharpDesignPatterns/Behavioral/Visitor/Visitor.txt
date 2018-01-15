@@ -1,0 +1,15 @@
+﻿#Visitor
+- Typically a tool for structure traversal rather than anything else.
+- A pattern where a component (visitor) is allowed to traverse the entire inheritance hierarchy.
+Implemented by propagating a single visit() method throughout the entire hierarchy.
+
+##Motivatioin
+- Need to define a new operation on an entire class hierarchy;
+- Do not want to keep modifying every class in the hierarchy;
+- Need access to the non-common aspects of classes in the hierarchy;
+- Create an externel component to handle rendering;
+
+##Summary
+- Propagate a method throughout the entire hierarchy;
+- Create a visitor with Visit(Foo), Visit(Bar) ... for each element in the hierarchy;
+- Each accept() method simply calls visitor.Visit(this).

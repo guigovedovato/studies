@@ -6,6 +6,10 @@ using MyVersionCSharpDesignPatterns.Behavioral.Mediator;
 using MyVersionCSharpDesignPatterns.Behavioral.Memento;
 using MyVersionCSharpDesignPatterns.Behavioral.NullObject;
 using MyVersionCSharpDesignPatterns.Behavioral.Observer;
+using MyVersionCSharpDesignPatterns.Behavioral.State;
+using MyVersionCSharpDesignPatterns.Behavioral.Strategy;
+using MyVersionCSharpDesignPatterns.Behavioral.Template_Method;
+using MyVersionCSharpDesignPatterns.Behavioral.Visitor;
 using MyVersionCSharpDesignPatterns.Creational.Builder;
 using MyVersionCSharpDesignPatterns.Creational.Factory;
 using MyVersionCSharpDesignPatterns.Creational.Prototype;
@@ -394,11 +398,154 @@ namespace MyVersionCSharpDesignPatterns
             #endregion Observer
 
             #region State
-
+            //A combination lock is a lock that opens after the right digits have been entered. 
+            //A lock is preprogrammed with a combination(e.g., 12345 ) and the user is expected to 
+            //enter this combination to unlock the lock.
+            //The lock has a Status field that indicates the state of the lock.The rules are:
+            //    If the lock has just been locked(or at startup), the status is LOCKED.
+            //    If a digit has been entered, that digit is shown on the screen. As the user enters more digits, 
+            //they are added to Status.
+            //    If the user has entered the correct sequence of digits, the lock status changes to OPEN.
+            //    If the user enters an incorrect sequence of digits, the lock status changes to ERROR.
+            //Please implement the CombinationLock  class to enable this behavior.Be sure to test both correct 
+            //and incorrect inputs.
             Console.WriteLine("State:");
-
+            Console.WriteLine("Success:");
+            var cl = new CombinationLock(new[] { 1, 2, 3, 4, 5 });
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(1);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(2);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(3);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(4);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(5);
+            Console.WriteLine(cl.Status);
+            Console.WriteLine("Failure:");
+            cl = new CombinationLock(new[] { 1, 2, 3 });
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(1);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(2);
+            Console.WriteLine(cl.Status);
+            cl.EnterDigit(5);
+            Console.WriteLine(cl.Status);
             Console.WriteLine();
             #endregion State
+
+            #region Strategy
+            //The part b ^ 2 - 4 * a * c is called the discriminant.Suppose we want to provide an API with two 
+            //different strategies for calculating the discriminant:
+            //    In OrdinaryDiscriminantStrategy, If the discriminant is negative, we return it as-is.
+            //        This is OK, since our main API returns Complex  numbers anyway.
+            //    In RealDiscriminantStrategy, if the discriminant is negative, the return value is 
+            //        NaN (not a number). NaN propagates throughout the calculation, so the equation solver gives two NaN values.
+            //Please implement both of these strategies as well as the equation solver itself.With regards to 
+            //plus-minus in the formula, please return the + result as the first element and - as the second.
+            Console.WriteLine("Strategy:");
+            Console.WriteLine("PositiveOrdinaryStrategy:");
+            var strategy = new OrdinaryDiscriminantStrategy();
+            var solver = new QuadraticEquationSolver(strategy);
+            var results = solver.Solve(1, 10, 16);
+            Console.WriteLine(results.Item1);
+            Console.WriteLine(results.Item2);
+            Console.WriteLine("PositiveRealStrategy:");
+            var strategypr = new RealDiscriminantStrategy();
+            var solverpr = new QuadraticEquationSolver(strategypr);
+            var resultspr = solverpr.Solve(1, 10, 16);
+            Console.WriteLine(resultspr.Item1);
+            Console.WriteLine(resultspr.Item2);
+            Console.WriteLine("NegativeOrdinaryStrategy:");
+            var strategyno = new OrdinaryDiscriminantStrategy();
+            var solverno = new QuadraticEquationSolver(strategyno);
+            var resultsno = solverno.Solve(1, 4, 5);
+            Console.WriteLine(resultsno.Item1);
+            Console.WriteLine(resultsno.Item2);
+            Console.WriteLine("NegativeRealStrategy:");
+            var strategynr = new RealDiscriminantStrategy();
+            var solvernr = new QuadraticEquationSolver(strategynr);
+            var resultsnr = solvernr.Solve(1, 4, 5);
+            var complexNaN = new System.Numerics.Complex(double.NaN, double.NaN);
+
+            Console.WriteLine(resultsnr.Item1);
+            Console.WriteLine(resultsnr.Item2);
+
+            Console.WriteLine(double.IsNaN(resultsnr.Item1.Real));
+            Console.WriteLine(double.IsNaN(resultsnr.Item1.Imaginary));
+            Console.WriteLine(double.IsNaN(resultsnr.Item2.Real));
+            Console.WriteLine(double.IsNaN(resultsnr.Item2.Imaginary));
+            Console.WriteLine();
+            #endregion Strategy
+
+            #region Template Method
+            //Imagine a typical collectible card game which has cards representing creatures.
+            //Each creature has two values: Attack and Health.Creatures can fight each other, dealing 
+            //their Attack damage, thereby reducing their opponent's health.
+            //The class CardGame implements the logic for two creatures fighting one another.
+            //However, the exact mechanics of how damage is dealt is different:
+            //    TemporaryCardDamage : In some games(e.g., Magic: the Gathering), unless the 
+            //creature has been killed, its health returns to the original value at the end of combat.
+            //    PermanentCardDamage : In other games(e.g., Hearthstone), health damage persists.
+            //You are asked to implement classes TemporaryCardDamageGame and PermanentCardDamageGame that 
+            //would allow us to simulate combat between creatures.
+            //Some examples:
+            //    With temporary damage, creatures 1/2 and 1/3 can never kill one another.With permanent 
+            //damage, second creature will win after 2 rounds of combat.
+            //    With either temporary or permanent damage, two 2/2 creatures kill one another.
+            Console.WriteLine("Template Method:");
+            Console.WriteLine("Impasse:");
+            var c1 = new Behavioral.Template_Method.Creature(1, 2);
+            var c2 = new Behavioral.Template_Method.Creature(1, 2);
+            CardGame gamei = new TemporaryCardDamageGame(new[] { c1, c2 });
+            Console.WriteLine(gamei.Combat(0, 1));
+            Console.WriteLine(gamei.Combat(0, 1));
+            Console.WriteLine("TemporaryMurder:");
+            var c1t = new Behavioral.Template_Method.Creature(1, 1);
+            var c2t = new Behavioral.Template_Method.Creature(2, 2);
+            CardGame gamet = new TemporaryCardDamageGame(new[] { c1t, c2t });
+            Console.WriteLine(gamet.Combat(0, 1));
+            Console.WriteLine("DoubleMurder:");
+            var c1d = new Behavioral.Template_Method.Creature(2, 2);
+            var c2d = new Behavioral.Template_Method.Creature(2, 2);
+            CardGame gamed = new TemporaryCardDamageGame(new[] { c1d, c2d });
+            Console.WriteLine(gamed.Combat(0, 1));
+            Console.WriteLine("PermanentDamageDeath:");
+            var c1p = new Behavioral.Template_Method.Creature(1, 2);
+            var c2p = new Behavioral.Template_Method.Creature(1, 3);
+            CardGame gamep = new PermanentCardDamage(new[] { c1p, c2p });
+            Console.WriteLine(gamep.Combat(0, 1));
+            Console.WriteLine(gamep.Combat(0, 1));
+            Console.WriteLine();
+            #endregion Template Method
+
+            #region Visitor
+            //You are asked to implement a double-dispatch visitor called ExpressionPrinter for printing different 
+            //mathematical expressions.The range of expressions covers addition and multiplication - please 
+            //put round brackets after around addition operations(but not multiplication ones)!Also, please avoid 
+            //any blank spaces in output.
+            //Example:
+            //    Input: AdditionExpression(Literal(2), Literal(3))
+            //    Output: (2 + 3)
+            Console.WriteLine("Visitor:");
+            Console.WriteLine("SimpleAddition");
+            var simple = new AdditionExpression(new Value(2), new Value(3));
+            var eps = new ExpressionPrinter();
+            eps.Accept(simple);
+            Console.WriteLine(eps.ToString());
+            Console.WriteLine("ProductOfAdditionAndValue");
+            var expr = new MultiplicationExpression(
+              new AdditionExpression(new Value(2), new Value(3)),
+              new Value(4)
+              );
+            var epp = new ExpressionPrinter();
+            epp.Accept(expr);
+            Console.WriteLine(epp.ToString());
+            Console.WriteLine();
+            #endregion Visitor
+
+
         }
     }
 }

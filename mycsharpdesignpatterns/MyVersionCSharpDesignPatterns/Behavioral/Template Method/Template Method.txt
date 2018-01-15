@@ -1,0 +1,18 @@
+﻿#Template Method
+- A high-level blueprint for an algorithm to be completed by inherithors.
+- Allows us to define the 'skeleton' of the algorithm, with concrete implementations defined in subclasses.
+
+##Motivation
+- Algorithms can be decomposed into common parts + specifics;
+- Strategy pattern does this through composition:
+ - High-level algorithm uses an interface;
+ - Concrete implementations implement the interface.
+- Template Method does the same thing through inheritance:
+ - Overall algorithm makes use of abstract method;
+ - Inheritors override the abstract members;
+ - Parent template method invoked.
+
+##Summary
+- Define an algorithm at a high level;
+- Define constituent parts as abstract methods/properties;
+- Inherit the algorithm class, providing necessary overrides.
