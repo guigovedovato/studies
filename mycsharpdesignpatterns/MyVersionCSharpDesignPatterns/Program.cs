@@ -30,6 +30,7 @@ namespace MyVersionCSharpDesignPatterns
     {
         static void Main(string[] args)
         {
+            #region Creational
             #region Builder
             //You are asked to implement the Builder design pattern for rendering simple chunks of code.
             //Sample use of the builder you are asked to create:
@@ -84,7 +85,9 @@ namespace MyVersionCSharpDesignPatterns
             Console.WriteLine(SingletonTester.IsSingleton(() => new object()));
             Console.WriteLine();
             #endregion Singleton
+            #endregion Creational
 
+            #region Structural
             #region Adapter
             //Here's a very synthetic example for you to try.
             //You are given an IRectangle  interface and an extension method on it.Try to define a 
@@ -180,7 +183,9 @@ namespace MyVersionCSharpDesignPatterns
             Console.WriteLine(rp.DrinkAndDrive());
             Console.WriteLine();
             #endregion Proxy
+            #endregion Structural
 
+            #region Behavioral
             #region Chain of Responsability
             //You are given a game scenario with classes Goblin and GoblinKing.Please implement the following rules:
             //  A goblin has base 1 attack / 1 defense(1 / 1), a goblin king is 3 / 3.
@@ -544,8 +549,7 @@ namespace MyVersionCSharpDesignPatterns
             Console.WriteLine(epp.ToString());
             Console.WriteLine();
             #endregion Visitor
-
-
+            #endregion Behavioral
         }
     }
 }
