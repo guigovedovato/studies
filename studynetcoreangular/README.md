@@ -29,10 +29,10 @@ ASPNET Core - Angular - SQLite
 * @Types/Underscore v1.8.6
 * Time Ago Pipe v1.2.1
 
-## SQLite
+## Database
 * SQLite v3.15.2
 
-### IDE & DataBase
+### IDE & DataBase Manager
 
 * VS Code
 * DB Browser for SQLite
