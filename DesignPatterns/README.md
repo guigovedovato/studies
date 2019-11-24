@@ -4,15 +4,15 @@ Design patterns are typical solutions to commonly occurring problems in software
 
 ## Creational
 
-[Creational Project](Creational/README.md)
+[Creational patterns](Creational/README.md) provide object creation mechanisms that increase flexibility and reuse of existing code.
 
 ## Structural
 
-[Structural Project](Structural/README.md)
+[Structural patterns](Structural/README.md) explain how to assemble objects and classes into larger structures, while keeping the structures flexible and efficient.
 
 ## Behavioral
 
-[Behavioral Project](Behavioral/README.md)
+[Behavioral patterns](Behavioral/README.md) take care of effective communication and the assignment of responsibilities between objects.
 
 ## Source
 * [Design Patterns in C# and .NET](https://www.udemy.com/course/design-patterns-csharp-dotnet/learn/lecture/6712758#overview)
