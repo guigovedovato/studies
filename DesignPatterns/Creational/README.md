@@ -4,5 +4,5 @@ These design patterns are all about class instantiation. This pattern can be fur
 
 ## Builder
 
-[Builder](Creational/Builder/README.md) is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
+[Builder](Builder/README.md) is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 
