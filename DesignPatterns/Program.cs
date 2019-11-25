@@ -1,5 +1,6 @@
 ﻿using System;
 using DesignPatterns.Creational.Builder.Fluent;
+using DesignPatterns.Creational.Builder.Functional;
 using DesignPatterns.Model.Enum;
 
 namespace DesignPatterns
@@ -15,9 +16,9 @@ namespace DesignPatterns
             #region Fluent Builder
 
             Console.WriteLine("Creational -> Builder -> Fluent Builder");
-            var pb = new PersonBuilder();
+            var fluentBuilder = new PersonFluentBuilder();
             Console.WriteLine(
-                pb.AddName("Rodrigo")
+                fluentBuilder.AddName("Rodrigo")
                 .AddSurname("Vedovato")
                 .AddPosition(Position.SoftwareEngineer)
                 .AddDateOfBirth(new DateTime(1985, 02, 07))
@@ -27,6 +28,22 @@ namespace DesignPatterns
             Console.WriteLine("----------------------------------------------");
 
             #endregion Fluent Builder
+
+            #region Functional Builder
+
+            Console.WriteLine("Creational -> Builder -> Functional Builder");
+            var functionalBuilder = new PersonFunctionalBuilder();
+            Console.WriteLine(
+                functionalBuilder.AddName("Rodrigo")
+                .AddSurname("Vedovato")
+                .AddPosition(Position.SoftwareEngineer)
+                .AddDateOfBirth(new DateTime(1985, 02, 07))
+                .Build().ToString()
+            );
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Functional Builder
 
             #endregion Builder
 
