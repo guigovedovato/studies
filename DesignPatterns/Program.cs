@@ -1,6 +1,8 @@
 ﻿using System;
+using DesignPatterns.Creational.Builder.Faceted;
 using DesignPatterns.Creational.Builder.Fluent;
 using DesignPatterns.Creational.Builder.Functional;
+using DesignPatterns.Model;
 using DesignPatterns.Model.Enum;
 
 namespace DesignPatterns
@@ -44,6 +46,25 @@ namespace DesignPatterns
             Console.WriteLine("----------------------------------------------");
 
             #endregion Functional Builder
+
+            #region Faceted Builder
+
+            Console.WriteLine("Creational -> Builder -> Faceted Builder");
+            var facetedlBuilder = new PersonFacetedBuilder();
+            Person person = facetedlBuilder
+                    .Is.Called("Rodrigo")
+                       .WithLastName("Vedovato")
+                       .BirthAt(new DateTime(1985, 02, 07))
+                    .Works.At("Altran Portugal S.A.")
+                          .AsA(Position.SoftwareEngineer)
+                    .Lives.At("Porto")
+                          .WithPostcode("123-1212-09")
+                          .In("Portugal");
+            Console.WriteLine(person);
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Faceted Builder
 
             #endregion Builder
 

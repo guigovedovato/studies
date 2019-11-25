@@ -4,7 +4,7 @@ namespace DesignPatterns.Creational.Builder.Functional
     {
         public static PersonFunctionalBuilder AddPosition(this PersonFunctionalBuilder builder, Model.Enum.Position position)
         {
-            builder.Actions.Add(person => { person.Position = position; });
+            builder.Actions.Add(person => { person.Job.Position = position; });
             return builder;
         }
     }

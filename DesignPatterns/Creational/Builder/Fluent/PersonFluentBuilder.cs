@@ -31,7 +31,7 @@ namespace DesignPatterns.Creational.Builder.Fluent
 
         public PersonFluentBuilder AddPosition(Model.Enum.Position position)
         {
-            this.Person.Position = position;
+            this.Person.Job.Position = position;
             return this;
         }
     }
