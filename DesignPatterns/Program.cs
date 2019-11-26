@@ -3,6 +3,7 @@ using DesignPatterns.Creational.Builder.Faceted;
 using DesignPatterns.Creational.Builder.Fluent;
 using DesignPatterns.Creational.Builder.Functional;
 using DesignPatterns.Creational.Factory.Factory_Method;
+using DesignPatterns.Creational.Factory.Inner_factory;
 using DesignPatterns.Model;
 using DesignPatterns.Model.Enum;
 
@@ -25,7 +26,7 @@ namespace DesignPatterns
                 .AddSurname("Vedovato")
                 .AddPosition(Position.SoftwareEngineer)
                 .AddDateOfBirth(new DateTime(1985, 02, 07))
-                .Build().ToString()
+                .Build()
             );
             
             Console.WriteLine("----------------------------------------------");
@@ -41,7 +42,7 @@ namespace DesignPatterns
                 .AddSurname("Vedovato")
                 .AddPosition(Position.SoftwareEngineer)
                 .AddDateOfBirth(new DateTime(1985, 02, 07))
-                .Build().ToString()
+                .Build()
             );
             
             Console.WriteLine("----------------------------------------------");
@@ -76,12 +77,24 @@ namespace DesignPatterns
             Console.WriteLine("Creational -> Factory -> Factory Method");
             var customerInvoice = InvoiceNumber.NewInvoiceNumberCustomer(2019, 11, 123456);
             var MerchantInvoice = InvoiceNumber.NewInvoiceNumberMerchant(2019, 11, 123456);
-            Console.WriteLine(customerInvoice.ToString());
-            Console.WriteLine(MerchantInvoice.ToString());
+            Console.WriteLine(customerInvoice);
+            Console.WriteLine(MerchantInvoice);
             
             Console.WriteLine("----------------------------------------------");
 
             #endregion Factory Method
+
+            #region Inner Factory 
+
+            Console.WriteLine("Creational -> Factory -> Inner Factory");
+            var personOrder = OrderNumber.Factory.NewOrderNumberForPerson(2019, 11, 123456);
+            var companyOrder = OrderNumber.Factory.NewOrderNumberForCompany(2019, 11, 123456);
+            Console.WriteLine(personOrder);
+            Console.WriteLine(companyOrder);
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Inner Factory
 
             #endregion Factory
 
