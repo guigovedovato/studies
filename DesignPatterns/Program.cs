@@ -2,6 +2,7 @@
 using DesignPatterns.Creational.Builder.Faceted;
 using DesignPatterns.Creational.Builder.Fluent;
 using DesignPatterns.Creational.Builder.Functional;
+using DesignPatterns.Creational.Factory.Factory_Method;
 using DesignPatterns.Model;
 using DesignPatterns.Model.Enum;
 
@@ -67,6 +68,22 @@ namespace DesignPatterns
             #endregion Faceted Builder
 
             #endregion Builder
+
+            #region Factory
+
+            #region Factory Method
+
+            Console.WriteLine("Creational -> Factory -> Factory Method");
+            var customerInvoice = InvoiceNumber.NewInvoiceNumberCustomer(2019, 11, 123456);
+            var MerchantInvoice = InvoiceNumber.NewInvoiceNumberMerchant(2019, 11, 123456);
+            Console.WriteLine(customerInvoice.ToString());
+            Console.WriteLine(MerchantInvoice.ToString());
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Factory Method
+
+            #endregion Factory
 
             #endregion Creational
         }
