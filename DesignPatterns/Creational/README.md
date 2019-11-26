@@ -6,3 +6,6 @@ These design patterns are all about class instantiation. This pattern can be fur
 
 [Builder](Builder/README.md) is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
 
+## Factory
+
+[Factory](Factory/README.md) is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
