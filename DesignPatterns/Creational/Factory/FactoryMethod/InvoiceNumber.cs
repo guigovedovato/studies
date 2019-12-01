@@ -1,4 +1,4 @@
-namespace DesignPatterns.Creational.Factory.Factory_Method
+namespace DesignPatterns.Creational.Factory.FactoryMethod
 {
     public class InvoiceNumber
     {

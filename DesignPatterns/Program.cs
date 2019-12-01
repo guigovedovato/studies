@@ -2,8 +2,9 @@
 using DesignPatterns.Creational.Builder.Faceted;
 using DesignPatterns.Creational.Builder.Fluent;
 using DesignPatterns.Creational.Builder.Functional;
-using DesignPatterns.Creational.Factory.Factory_Method;
-using DesignPatterns.Creational.Factory.Inner_factory;
+using DesignPatterns.Creational.Factory.AbstractFactory;
+using DesignPatterns.Creational.Factory.FactoryMethod;
+using DesignPatterns.Creational.Factory.InnerFactory;
 using DesignPatterns.Model;
 using DesignPatterns.Model.Enum;
 
@@ -20,6 +21,7 @@ namespace DesignPatterns
             #region Fluent Builder
 
             Console.WriteLine("Creational -> Builder -> Fluent Builder");
+
             var fluentBuilder = new PersonFluentBuilder();
             Console.WriteLine(
                 fluentBuilder.AddName("Rodrigo")
@@ -36,6 +38,7 @@ namespace DesignPatterns
             #region Functional Builder
 
             Console.WriteLine("Creational -> Builder -> Functional Builder");
+
             var functionalBuilder = new PersonFunctionalBuilder();
             Console.WriteLine(
                 functionalBuilder.AddName("Rodrigo")
@@ -52,6 +55,7 @@ namespace DesignPatterns
             #region Faceted Builder
 
             Console.WriteLine("Creational -> Builder -> Faceted Builder");
+
             var facetedlBuilder = new PersonFacetedBuilder();
             Person person = facetedlBuilder
                     .Is.Called("Rodrigo")
@@ -75,6 +79,7 @@ namespace DesignPatterns
             #region Factory Method
 
             Console.WriteLine("Creational -> Factory -> Factory Method");
+
             var customerInvoice = InvoiceNumber.NewInvoiceNumberCustomer(2019, 11, 123456);
             var MerchantInvoice = InvoiceNumber.NewInvoiceNumberMerchant(2019, 11, 123456);
             Console.WriteLine(customerInvoice);
@@ -95,6 +100,20 @@ namespace DesignPatterns
             Console.WriteLine("----------------------------------------------");
 
             #endregion Inner Factory
+
+            #region Abstract Factory 
+
+            Console.WriteLine("Creational -> Factory -> Abstract Factory");
+
+            var makeInvoice = new MakeInvoice();
+            var invoice = makeInvoice
+                            .CreateInvoice(InvoiceType.Sale)
+                            .Generate(person, 133.98);
+            Console.WriteLine(invoice);
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Abstract Factory
 
             #endregion Factory
 

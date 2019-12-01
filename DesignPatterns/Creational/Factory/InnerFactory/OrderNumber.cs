@@ -1,4 +1,4 @@
-namespace DesignPatterns.Creational.Factory.Inner_factory
+namespace DesignPatterns.Creational.Factory.InnerFactory
 {
     public class OrderNumber
     {
