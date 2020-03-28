@@ -9,3 +9,8 @@ These design patterns are all about class instantiation. This pattern can be fur
 ## Factory
 
 [Factory](Factory/README.md) is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
+
+## Prototype
+
+[Prototype](Prototype/README.md) is a creational design pattern that lets you copy existing objects without making your code dependent on their classes.
+

@@ -117,6 +117,16 @@ namespace DesignPatterns
 
             #endregion Factory
 
+            #region Prototype
+
+            Console.WriteLine("Creational -> Prototype -> ");
+
+            
+            
+            Console.WriteLine("----------------------------------------------");
+
+            #endregion Prototype
+
             #endregion Creational
         }
     }
