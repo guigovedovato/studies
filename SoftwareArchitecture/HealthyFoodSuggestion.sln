@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFood.API", "HealthyFood.API\HealthyFood.API.csproj", "{22F348F6-CF59-4C76-9BF0-7FB7149B2A3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFoodSuggestion.API", "HealthyFoodSuggestion.API\HealthyFoodSuggestion.API.csproj", "{22F348F6-CF59-4C76-9BF0-7FB7149B2A3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFood.Data", "HealthyFood.Data\HealthyFood.Data.csproj", "{CFC71B56-CCA0-43C6-82D3-ED46E60EDA94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFoodSuggestion.Data", "HealthyFoodSuggestion.Data\HealthyFoodSuggestion.Data.csproj", "{CFC71B56-CCA0-43C6-82D3-ED46E60EDA94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFood.Model", "HealthyFood.Model\HealthyFood.Model.csproj", "{BDF1CC2B-93E4-4C5D-A5A1-C90AFD96D40D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFoodSuggestion.Model", "HealthyFoodSuggestion.Model\HealthyFoodSuggestion.Model.csproj", "{BDF1CC2B-93E4-4C5D-A5A1-C90AFD96D40D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFood.Service", "HealthyFood.Service\HealthyFood.Service.csproj", "{9699E640-3B35-4E0B-BBBC-6A3810E0F8CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFoodSuggestion.Service", "HealthyFoodSuggestion.Service\HealthyFoodSuggestion.Service.csproj", "{9699E640-3B35-4E0B-BBBC-6A3810E0F8CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFood.UI", "HealthyFood.UI\HealthyFood.UI.csproj", "{822C1D10-08C9-4BA1-A0C6-73E73790DA07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthyFoodSuggestion.UI", "HealthyFoodSuggestion.UI\HealthyFoodSuggestion.UI.csproj", "{822C1D10-08C9-4BA1-A0C6-73E73790DA07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
