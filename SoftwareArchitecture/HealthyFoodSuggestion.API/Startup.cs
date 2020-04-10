@@ -1,3 +1,4 @@
+using HealthyFoodSuggestion.Service.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,7 @@ namespace HealthyFoodSuggestion.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.RegisterServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
