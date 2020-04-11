@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using HealthyFoodSuggestion.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,9 @@ namespace HealthyFoodSuggestion.API.Controllers
         }
 
         [HttpGet("{type}/{ingredient}")]
-        public IActionResult Get(byte type, string ingredient)
+        public async Task<IActionResult> Get(byte type, string ingredient)
         {
-            return Ok(this.suggestion.RetrieveSuggestions(ingredient, type));
+            return Ok(await this.suggestion.RetrieveSuggestionsAsync(ingredient, type));
         }
     }
 }

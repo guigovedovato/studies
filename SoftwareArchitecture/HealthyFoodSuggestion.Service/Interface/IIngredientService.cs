@@ -1,9 +1,10 @@
+using System.Threading.Tasks;
 using HealthyFoodSuggestion.Model.Business;
 
 namespace HealthyFoodSuggestion.Service.Interface
 {
     public interface IIngredientService
     {
-         Ingredient GetIngredient(string name);
+         Task<Ingredient> GetIngredientAsync(string name);
     }
 }

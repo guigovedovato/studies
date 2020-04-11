@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Model.Business;
 using HealthyFoodSuggestion.Model.Enum;
+using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Data.Model
 {
@@ -23,7 +24,7 @@ namespace HealthyFoodSuggestion.Data.Model
             };
         }
 
-        public Ingredient GetIngredient(string name)
+        public async Task<Ingredient> GetIngredientAsync(string name)
         {
             return this.ingredients.FirstOrDefault(i => i.Name.Equals(name));
         }

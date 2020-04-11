@@ -1,11 +1,11 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Enum;
 
 namespace HealthyFoodSuggestion.Service.Interface
 {
     public interface ISuggestion
     {
-         IEnumerable<Recipe> RetrieveSuggestions(string ingredient, byte type);
+         Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type);
     }
 }

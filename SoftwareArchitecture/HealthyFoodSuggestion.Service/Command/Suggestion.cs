@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using HealthyFoodSuggestion.Model.Business;
 using HealthyFoodSuggestion.Service.Extensions;
 using HealthyFoodSuggestion.Service.Interface;
@@ -16,12 +17,12 @@ namespace HealthyFoodSuggestion.Service.Command
             this.ingredientCreator = ingredientCreator ?? throw new System.ArgumentNullException(nameof(ingredientCreator));
         }
 
-        public IEnumerable<Recipe> RetrieveSuggestions(string ingredient, byte type)
+        public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type)
         {
-            return recipeCreator
+            return await recipeCreator
                         .Create(type.MapToModel())
-                        .RetrieveRecipes(
-                            ingredientCreator.Create().GetIngredient(ingredient.ToLower())
+                        .RetrieveRecipesAsync(
+                            await ingredientCreator.Create().GetIngredientAsync(ingredient.ToLower())
                         );
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Model.Business;
 using HealthyFoodSuggestion.Model.Enum;
+using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Data.Model
 {
@@ -27,7 +28,7 @@ namespace HealthyFoodSuggestion.Data.Model
             };
         }
 
-        public IEnumerable<Recipe> RetrieveRecipes(Ingredient ingredient, RecipeType type)
+        public async Task<IEnumerable<Recipe>> RetrieveRecipesAsync(Ingredient ingredient, RecipeType type)
         {
             return this.recipes
                             .Where(r => r.Ingredients.Where(i => i.Id == ingredient.Id).Any() && r.Type == type)

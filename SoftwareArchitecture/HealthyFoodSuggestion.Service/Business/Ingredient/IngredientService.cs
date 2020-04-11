@@ -1,6 +1,7 @@
 using HealthyFoodSuggestion.Data.Interface;
 using IngredientModel = HealthyFoodSuggestion.Model.Business.Ingredient;
 using HealthyFoodSuggestion.Service.Interface;
+using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Service.Business.Ingredient
 {
@@ -13,9 +14,9 @@ namespace HealthyFoodSuggestion.Service.Business.Ingredient
             this.ingredientRepository = ingredientRepository ?? throw new System.ArgumentNullException(nameof(ingredientRepository));
         }
 
-        public IngredientModel GetIngredient(string name)
+        public async Task<IngredientModel> GetIngredientAsync(string name)
         {
-            return this.ingredientRepository.GetIngredient(name);
+            return await this.ingredientRepository.GetIngredientAsync(name);
         }
     }
 }

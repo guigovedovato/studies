@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Model.Enum;
 using HealthyFoodSuggestion.Service.Interface;
@@ -16,9 +17,9 @@ namespace HealthyFoodSuggestion.Service.Business.Recipe
             this.recipeRepository = recipeRepository ?? throw new System.ArgumentNullException(nameof(recipeRepository));
         }
 
-        public IEnumerable<RecipeModel> RetrieveRecipes(IngredientModel ingredient)
+        public async Task<IEnumerable<RecipeModel>> RetrieveRecipesAsync(IngredientModel ingredient)
         {
-            return this.recipeRepository.RetrieveRecipes(ingredient, RecipeType.Vegan);
+            return await this.recipeRepository.RetrieveRecipesAsync(ingredient, RecipeType.Vegan);
         }
     }
 }
