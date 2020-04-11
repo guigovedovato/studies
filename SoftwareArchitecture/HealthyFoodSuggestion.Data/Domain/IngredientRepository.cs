@@ -5,7 +5,7 @@ using HealthyFoodSuggestion.Model.Business;
 using HealthyFoodSuggestion.Model.Enum;
 using System.Threading.Tasks;
 
-namespace HealthyFoodSuggestion.Data.Model
+namespace HealthyFoodSuggestion.Data.Domain
 {
     public class IngredientRepository : IIngredientRepository
     {

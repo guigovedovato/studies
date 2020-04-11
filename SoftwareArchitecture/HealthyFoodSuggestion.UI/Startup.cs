@@ -24,7 +24,10 @@ namespace HealthyFoodSuggestion.UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpClient<ISuggestionService, SuggestionService>(
-                client => client.BaseAddress = new Uri("http://localhost:6000/")
+                client => 
+                    client.BaseAddress = new Uri(
+                        Configuration.GetSection("ServiceApi").GetSection("Uri").Value
+                    )
             );
         }
 
