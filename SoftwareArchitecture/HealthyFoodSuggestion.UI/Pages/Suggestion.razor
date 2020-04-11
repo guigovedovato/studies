@@ -1,0 +1,33 @@
+@page "/suggestion"
+@using HealthyFoodSuggestion.Model.Business
+@using HealthyFoodSuggestion.Model.Dto.Model
+@inject ISuggestionService suggestionService
+
+<h3>Suggestion</h3>
+
+@if(Recipes is null)
+{
+    <span><strong>Loading...</strong></span>
+}
+else
+{
+    <p>@request.ingredient</p>
+    @foreach (var recipe in Recipes)
+    {
+        <div>
+            <p>@recipe.Description</p>
+        </div>
+    }
+}
+
+@code {
+    private IEnumerable<Recipe> Recipes;
+
+    public SuggestionRequest request { get; set; } = 
+                    new SuggestionRequest() { ingredient = "beterraba", Type = 1 };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Recipes = await suggestionService.GetRecipesAsync(request);
+    }
+}

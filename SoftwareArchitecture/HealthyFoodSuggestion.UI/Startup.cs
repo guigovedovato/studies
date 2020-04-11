@@ -1,3 +1,5 @@
+using System;
+using HealthyFoodSuggestion.UI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,9 @@ namespace HealthyFoodSuggestion.UI
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddHttpClient<ISuggestionService, SuggestionService>(
+                client => client.BaseAddress = new Uri("http://localhost:6000/")
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
