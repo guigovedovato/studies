@@ -15,7 +15,7 @@ namespace HealthyFoodSuggestion.Service.IoC
             services.AddSingleton<IIngredientRepository, IngredientRepository>();
             services.AddSingleton<IRecipeRepository, RecipeRepository>();
             services.AddScoped<ISuggestion, Suggestion>();
-            services.AddScoped<IRecipeCreator, RecipeServiceCreator>();
+            services.AddScoped<IRecipeCreator, RecipeServiceFatory>();
             services.AddScoped<IIngredientCreator, IngredientServiceCreator>();
             return services;
         }
