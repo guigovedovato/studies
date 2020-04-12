@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Data.Domain
 {
-    public class IngredientRepository : IIngredientRepository
+    internal class IngredientRepository : IIngredientRepository
     {
         private readonly IEnumerable<Ingredient> ingredients;
 

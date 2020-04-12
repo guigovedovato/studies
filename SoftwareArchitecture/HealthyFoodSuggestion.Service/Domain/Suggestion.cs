@@ -11,10 +11,10 @@ namespace HealthyFoodSuggestion.Service.Domain
         private readonly IRecipeFactory recipeFactory;
         private readonly IIngredientFactory ingredientFactory;
 
-        public Suggestion(IRecipeFactory recipeCreator, IIngredientFactory ingredientCreator)
+        public Suggestion(IRecipeFactory recipeFactory, IIngredientFactory ingredientFactory)
         {
-            this.recipeFactory = recipeCreator ?? throw new System.ArgumentNullException(nameof(recipeCreator));
-            this.ingredientFactory = ingredientCreator ?? throw new System.ArgumentNullException(nameof(ingredientCreator));
+            this.recipeFactory = recipeFactory ?? throw new System.ArgumentNullException(nameof(recipeFactory));
+            this.ingredientFactory = ingredientFactory ?? throw new System.ArgumentNullException(nameof(ingredientFactory));
         }
 
         public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type)

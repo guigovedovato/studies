@@ -7,7 +7,7 @@ using HealthyFoodSuggestion.Domain.Dto;
 
 namespace HealthyFoodSuggestion.UI.Services
 {
-    public class SuggestionService : ISuggestionService
+    internal class SuggestionService : ISuggestionService
     {
         private readonly HttpClient httpClient;
 

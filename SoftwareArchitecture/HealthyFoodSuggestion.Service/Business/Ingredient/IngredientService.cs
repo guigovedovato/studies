@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Service.Business.Ingredient
 {
-    public class IngredientService : IIngredientService
+    internal class IngredientService : IIngredientService
     {
         private readonly IIngredientRepository ingredientRepository;
 

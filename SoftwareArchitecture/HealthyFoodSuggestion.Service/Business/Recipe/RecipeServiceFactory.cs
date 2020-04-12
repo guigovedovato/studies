@@ -5,7 +5,7 @@ using HealthyFoodSuggestion.Service.Interface;
 
 namespace HealthyFoodSuggestion.Service.Business.Recipe
 {
-    public class RecipeServiceFactory : IRecipeFactory
+    internal class RecipeServiceFactory : IRecipeFactory
     {
         private readonly IRecipeRepository recipeRepository;
 
