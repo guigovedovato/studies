@@ -1,6 +1,6 @@
 namespace HealthyFoodSuggestion.Service.Interface
 {
-    public interface IIngredientCreator
+    public interface IIngredientFactory
     {
          IIngredientService Create();
     }

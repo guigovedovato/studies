@@ -4,11 +4,11 @@ using HealthyFoodSuggestion.Service.Interface;
 
 namespace HealthyFoodSuggestion.Service.Business.Ingredient
 {
-    internal class IngredientServiceCreator : IIngredientCreator
+    internal class IngredientServiceFactory : IIngredientFactory
     {
         private readonly IIngredientRepository ingredientRepository;
 
-        public IngredientServiceCreator(IIngredientRepository ingredientRepository)
+        public IngredientServiceFactory(IIngredientRepository ingredientRepository)
         {
             this.ingredientRepository = ingredientRepository ?? throw new ArgumentNullException(nameof(ingredientRepository));
         }

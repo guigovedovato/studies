@@ -8,21 +8,21 @@ namespace HealthyFoodSuggestion.Service.Domain
 {
     public class Suggestion : ISuggestion
     {
-        private readonly IRecipeCreator recipeCreator;
-        private readonly IIngredientCreator ingredientCreator;
+        private readonly IRecipeFactory recipeFactory;
+        private readonly IIngredientFactory ingredientFactory;
 
-        public Suggestion(IRecipeCreator recipeCreator, IIngredientCreator ingredientCreator)
+        public Suggestion(IRecipeFactory recipeCreator, IIngredientFactory ingredientCreator)
         {
-            this.recipeCreator = recipeCreator ?? throw new System.ArgumentNullException(nameof(recipeCreator));
-            this.ingredientCreator = ingredientCreator ?? throw new System.ArgumentNullException(nameof(ingredientCreator));
+            this.recipeFactory = recipeCreator ?? throw new System.ArgumentNullException(nameof(recipeCreator));
+            this.ingredientFactory = ingredientCreator ?? throw new System.ArgumentNullException(nameof(ingredientCreator));
         }
 
         public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type)
         {
-            return await recipeCreator
+            return await recipeFactory
                         .Create(type.MapToModel())
                         .RetrieveRecipesAsync(
-                            await ingredientCreator.Create().GetIngredientAsync(ingredient.ToLower())
+                            await ingredientFactory.Create().GetIngredientAsync(ingredient.ToLower())
                         );
         }
     }

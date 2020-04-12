@@ -5,11 +5,11 @@ using HealthyFoodSuggestion.Service.Interface;
 
 namespace HealthyFoodSuggestion.Service.Business.Recipe
 {
-    public class RecipeServiceFatory : IRecipeCreator
+    public class RecipeServiceFactory : IRecipeFactory
     {
         private readonly IRecipeRepository recipeRepository;
 
-        public RecipeServiceFatory(IRecipeRepository recipeRepository)
+        public RecipeServiceFactory(IRecipeRepository recipeRepository)
         {
             this.recipeRepository = recipeRepository ?? throw new ArgumentNullException(nameof(recipeRepository));
         }
