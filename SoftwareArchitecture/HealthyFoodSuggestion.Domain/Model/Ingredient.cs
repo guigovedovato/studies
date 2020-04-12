@@ -1,8 +1,7 @@
-using HealthyFoodSuggestion.Model.Enum;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
-namespace HealthyFoodSuggestion.Data.Model
+namespace HealthyFoodSuggestion.Domain.Model
 {
     public class Ingredient
     {

@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Model.Business;
+using HealthyFoodSuggestion.Domain.Business;
 
 namespace HealthyFoodSuggestion.Service.Interface
 {

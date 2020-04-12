@@ -1,9 +1,9 @@
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Dto.Model;
+using HealthyFoodSuggestion.Domain.Business;
 using System.Text.Json;
+using HealthyFoodSuggestion.Domain.Dto;
 
 namespace HealthyFoodSuggestion.UI.Services
 {

@@ -1,6 +1,6 @@
 using System;
 using HealthyFoodSuggestion.Data.Interface;
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Service.Interface;
 
 namespace HealthyFoodSuggestion.Service.Business.Recipe

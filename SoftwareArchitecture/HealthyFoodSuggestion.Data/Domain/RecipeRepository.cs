@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Interface;
-using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Data.Domain
@@ -31,7 +31,9 @@ namespace HealthyFoodSuggestion.Data.Domain
         public async Task<IEnumerable<Recipe>> RetrieveRecipesAsync(Ingredient ingredient, RecipeType type)
         {
             return this.recipes
-                            .Where(r => r.Ingredients.Where(i => i.Id == ingredient.Id).Any() && r.Type == type)
+                            .Where(r => 
+                                    r.Ingredients.Where(i => i.Id == ingredient.Id).Any() && 
+                                    r.Type == type)
                             .ToList();
         }
     }

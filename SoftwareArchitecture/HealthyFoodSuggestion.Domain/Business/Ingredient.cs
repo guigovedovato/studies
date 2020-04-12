@@ -1,6 +1,6 @@
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Enum;
 
-namespace HealthyFoodSuggestion.Model.Business
+namespace HealthyFoodSuggestion.Domain.Business
 {
     public class Ingredient
     {

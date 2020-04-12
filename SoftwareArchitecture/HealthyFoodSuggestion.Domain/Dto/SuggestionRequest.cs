@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace HealthyFoodSuggestion.Model.Dto.Model
+namespace HealthyFoodSuggestion.Domain.Dto
 {
     public class SuggestionRequest
     {

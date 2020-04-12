@@ -1,5 +1,5 @@
 using HealthyFoodSuggestion.Data.Interface;
-using IngredientModel = HealthyFoodSuggestion.Model.Business.Ingredient;
+using IngredientModel = HealthyFoodSuggestion.Domain.Business.Ingredient;
 using HealthyFoodSuggestion.Service.Interface;
 using System.Threading.Tasks;
 

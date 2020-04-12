@@ -1,4 +1,4 @@
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Enum;
 
 namespace HealthyFoodSuggestion.Service.Interface
 {

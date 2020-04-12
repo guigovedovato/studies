@@ -16,7 +16,7 @@ namespace HealthyFoodSuggestion.API.Controllers
         }
 
         [HttpGet("{type}/{ingredient}")]
-        public async Task<IActionResult> Get(byte type, string ingredient)
+        public async Task<IActionResult> GetAsync(byte type, string ingredient)
         {
             return Ok(await this.suggestion.RetrieveSuggestionsAsync(ingredient, type));
         }

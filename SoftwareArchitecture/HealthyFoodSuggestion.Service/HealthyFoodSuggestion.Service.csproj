@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HealthyFoodSuggestion.Data\HealthyFoodSuggestion.Data.csproj" />
-    <ProjectReference Include="..\HealthyFoodSuggestion.Model\HealthyFoodSuggestion.Model.csproj" />
+    <ProjectReference Include="..\HealthyFoodSuggestion.Domain\HealthyFoodSuggestion.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

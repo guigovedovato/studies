@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Model.Business;
+using HealthyFoodSuggestion.Domain.Business;
 using HealthyFoodSuggestion.Service.Extensions;
 using HealthyFoodSuggestion.Service.Interface;
 

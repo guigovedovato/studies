@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Enum;
 
 namespace HealthyFoodSuggestion.Data.Interface
 {

@@ -1,4 +1,4 @@
-namespace HealthyFoodSuggestion.Model.Enum
+namespace HealthyFoodSuggestion.Domain.Enum
 {
     public enum FoodGroup
     {

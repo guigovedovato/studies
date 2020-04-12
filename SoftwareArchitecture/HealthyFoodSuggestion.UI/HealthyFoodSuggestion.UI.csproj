@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <ItemGroup>
-    <ProjectReference Include="..\HealthyFoodSuggestion.Model\HealthyFoodSuggestion.Model.csproj" />
+    <ProjectReference Include="..\HealthyFoodSuggestion.Domain\HealthyFoodSuggestion.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

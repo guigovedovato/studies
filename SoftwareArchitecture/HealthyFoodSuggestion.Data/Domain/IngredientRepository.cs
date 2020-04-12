@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Interface;
-using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Enum;
+using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
 
 namespace HealthyFoodSuggestion.Data.Domain

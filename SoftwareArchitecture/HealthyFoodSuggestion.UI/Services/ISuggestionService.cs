@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Model.Business;
-using HealthyFoodSuggestion.Model.Dto.Model;
+using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Dto;
 
 namespace HealthyFoodSuggestion.UI.Services
 {
