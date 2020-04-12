@@ -2,7 +2,7 @@ using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Data.Domain;
 using HealthyFoodSuggestion.Service.Business.Ingredient;
 using HealthyFoodSuggestion.Service.Business.Recipe;
-using HealthyFoodSuggestion.Service.Command;
+using HealthyFoodSuggestion.Service.Domain;
 using HealthyFoodSuggestion.Service.Interface;
 using Microsoft.Extensions.DependencyInjection;
 

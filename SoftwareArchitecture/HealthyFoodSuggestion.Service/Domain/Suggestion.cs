@@ -4,7 +4,7 @@ using HealthyFoodSuggestion.Domain.Business;
 using HealthyFoodSuggestion.Service.Extensions;
 using HealthyFoodSuggestion.Service.Interface;
 
-namespace HealthyFoodSuggestion.Service.Command
+namespace HealthyFoodSuggestion.Service.Domain
 {
     public class Suggestion : ISuggestion
     {
