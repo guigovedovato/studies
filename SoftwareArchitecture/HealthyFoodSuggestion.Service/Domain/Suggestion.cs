@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Model;
 using HealthyFoodSuggestion.Service.Extensions;
 using HealthyFoodSuggestion.Service.Interface;
 
@@ -18,12 +18,10 @@ namespace HealthyFoodSuggestion.Service.Domain
         }
 
         public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type)
-        {
-            return await recipeFactory
+            =>  await recipeFactory
                         .Create(type.MapToModel())
                         .RetrieveRecipesAsync(
                             await ingredientFactory.Create().GetIngredientAsync(ingredient.ToLower())
                         );
-        }
     }
 }

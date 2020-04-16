@@ -1,7 +1,7 @@
 using System.Net.Http;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Domain.Model;
 using System.Text.Json;
 using HealthyFoodSuggestion.Domain.Dto;
 

@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Service.Interface;
-using IngredientModel = HealthyFoodSuggestion.Domain.Business.Ingredient;
-using RecipeModel = HealthyFoodSuggestion.Domain.Business.Recipe;
+using IngredientModel = HealthyFoodSuggestion.Domain.Model.Ingredient;
+using RecipeModel = HealthyFoodSuggestion.Domain.Model.Recipe;
 
 namespace HealthyFoodSuggestion.Service.Business.Recipe
 {

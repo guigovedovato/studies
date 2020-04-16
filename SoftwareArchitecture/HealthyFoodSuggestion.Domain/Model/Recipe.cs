@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
+using HealthyFoodSuggestion.Domain.Enum;
 
 namespace HealthyFoodSuggestion.Domain.Model
 {
@@ -11,11 +10,9 @@ namespace HealthyFoodSuggestion.Domain.Model
             this.Ingredients = new List<Ingredient>();
         }
         
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
         public int Id { get; set; }
         public IEnumerable<Ingredient> Ingredients { get; set; }
-        public byte Type { get; set; }       
+        public RecipeType Type { get; set; }     
         public string Description { get; set; }
     }
 }

@@ -1,9 +1,10 @@
 using System.Linq;
 using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Interface;
-using HealthyFoodSuggestion.Domain.Business;
+using HealthyFoodSuggestion.Data.Model;
 using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
+using HealthyFoodSuggestion.Data.Mapper;
 
 namespace HealthyFoodSuggestion.Data.Domain
 {
@@ -18,23 +19,23 @@ namespace HealthyFoodSuggestion.Data.Domain
                 new Recipe 
                 { 
                     Id = 1,
-                    Type = RecipeType.Vegan,
+                    Type = (byte)RecipeType.Vegan,
                     Description = "Bla Bla Bla",
                     Ingredients = new List<Ingredient> 
                     {
-                        new Ingredient { Id = 1, Name = "beterraba", Group = FoodGroup.Vegetables }
+                        new Ingredient { Id = 1, Name = "beterraba", Group = (byte)FoodGroup.Vegetables }
                     }
                 }
             };
         }
 
-        public async Task<IEnumerable<Recipe>> RetrieveRecipesAsync(Ingredient ingredient, RecipeType type)
+        public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(HealthyFoodSuggestion.Domain.Model.Ingredient ingredient, RecipeType type)
         {
             return this.recipes
                             .Where(r => 
                                     r.Ingredients.Where(i => i.Id == ingredient.Id).Any() && 
-                                    r.Type == type)
-                            .ToList();
+                                    r.Type == (byte)type)
+                            .ToList().ToDomain();
         }
     }
 }
