@@ -12,14 +12,12 @@ namespace HealthyFoodSuggestion.Service.Business.Recipe
     {
         private readonly IRecipeRepository recipeRepository;
 
-        public VeganRecipeService(IRecipeRepository recipeRepository)
-        {
-            this.recipeRepository = recipeRepository ?? throw new System.ArgumentNullException(nameof(recipeRepository));
-        }
+        public VeganRecipeService(IRecipeRepository recipeRepository) 
+            => this.recipeRepository = 
+                recipeRepository ?? 
+                throw new System.ArgumentNullException(nameof(recipeRepository));
 
-        public async Task<IEnumerable<RecipeModel>> RetrieveRecipesAsync(IngredientModel ingredient)
-        {
-            return await this.recipeRepository.RetrieveRecipesAsync(ingredient, RecipeType.Vegan);
-        }
+        public async Task<IEnumerable<RecipeModel>> RetrieveRecipesAsync(IngredientModel ingredient) 
+            => await this.recipeRepository.RetrieveRecipesAsync(ingredient, RecipeType.Vegan);
     }
 }

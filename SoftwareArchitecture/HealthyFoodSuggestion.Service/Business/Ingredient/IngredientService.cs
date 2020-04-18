@@ -9,14 +9,12 @@ namespace HealthyFoodSuggestion.Service.Business.Ingredient
     {
         private readonly IIngredientRepository ingredientRepository;
 
-        public IngredientService(IIngredientRepository ingredientRepository)
-        {
-            this.ingredientRepository = ingredientRepository ?? throw new System.ArgumentNullException(nameof(ingredientRepository));
-        }
+        public IngredientService(IIngredientRepository ingredientRepository) 
+            => this.ingredientRepository = 
+                ingredientRepository ?? 
+                throw new System.ArgumentNullException(nameof(ingredientRepository));
 
-        public async Task<IngredientModel> GetIngredientAsync(string name)
-        {
-            return await this.ingredientRepository.GetIngredientAsync(name);
-        }
+        public async Task<IngredientModel> GetIngredientAsync(string name) 
+            => await this.ingredientRepository.GetIngredientAsync(name);
     }
 }

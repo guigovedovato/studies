@@ -9,10 +9,10 @@ namespace HealthyFoodSuggestion.Service.Business.Recipe
     {
         private readonly IRecipeRepository recipeRepository;
 
-        public RecipeServiceFactory(IRecipeRepository recipeRepository)
-        {
-            this.recipeRepository = recipeRepository ?? throw new ArgumentNullException(nameof(recipeRepository));
-        }
+        public RecipeServiceFactory(IRecipeRepository recipeRepository) 
+            => this.recipeRepository = 
+                recipeRepository ?? 
+                throw new ArgumentNullException(nameof(recipeRepository));
 
         public IRecipeService Create(RecipeType type)
         {

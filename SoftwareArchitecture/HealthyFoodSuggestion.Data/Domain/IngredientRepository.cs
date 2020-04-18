@@ -5,6 +5,7 @@ using HealthyFoodSuggestion.Data.Model;
 using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
 using HealthyFoodSuggestion.Data.Mapper;
+using System;
 
 namespace HealthyFoodSuggestion.Data.Domain
 {
@@ -12,22 +13,18 @@ namespace HealthyFoodSuggestion.Data.Domain
     {
         private readonly IEnumerable<Ingredient> ingredients;
 
-        public IngredientRepository()
-        {
-            this.ingredients = new List<Ingredient>
-            {
-                new Ingredient { Id = 1, Name = "beterraba", Group = (byte)FoodGroup.Vegetables },
-                new Ingredient { Id = 1, Name = "manteiga", Group = (byte)FoodGroup.Dairy },
-                new Ingredient { Id = 1, Name = "banana", Group = (byte)FoodGroup.Fruit },
-                new Ingredient { Id = 1, Name = "feijão", Group = (byte)FoodGroup.Grain },
-                new Ingredient { Id = 1, Name = "peito de frango", Group = (byte)FoodGroup.Meat },
-                new Ingredient { Id = 1, Name = "camarão", Group = (byte)FoodGroup.Seafood }
-            };
-        }
+        public IngredientRepository() 
+            => this.ingredients = new List<Ingredient>
+                {
+                    new Ingredient { Id = Guid.Parse("505eb5c9-52e2-4d8a-a05c-cdf0e8ebf158"), Name = "beterraba", Group = FoodGroup.Vegetables },
+                    new Ingredient { Id = Guid.NewGuid(), Name = "manteiga", Group = FoodGroup.Dairy },
+                    new Ingredient { Id = Guid.NewGuid(), Name = "banana", Group = FoodGroup.Fruit },
+                    new Ingredient { Id = Guid.NewGuid(), Name = "feijão", Group = FoodGroup.Grain },
+                    new Ingredient { Id = Guid.NewGuid(), Name = "peito de frango", Group = FoodGroup.Meat },
+                    new Ingredient { Id = Guid.NewGuid(), Name = "camarão", Group = FoodGroup.Seafood }
+                };
 
-        public async Task<HealthyFoodSuggestion.Domain.Model.Ingredient> GetIngredientAsync(string name)
-        {
-            return this.ingredients.FirstOrDefault(i => i.Name.Equals(name)).ToDomain();
-        }
+        public async Task<HealthyFoodSuggestion.Domain.Model.Ingredient> GetIngredientAsync(string name) 
+            => this.ingredients.SingleOrDefault(i => i.Name.ToLower().Equals(name)).ToDomain();
     }
 }

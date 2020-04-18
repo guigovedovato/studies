@@ -8,14 +8,11 @@ namespace HealthyFoodSuggestion.Service.Business.Ingredient
     {
         private readonly IIngredientRepository ingredientRepository;
 
-        public IngredientServiceFactory(IIngredientRepository ingredientRepository)
-        {
-            this.ingredientRepository = ingredientRepository ?? throw new ArgumentNullException(nameof(ingredientRepository));
-        }
+        public IngredientServiceFactory(IIngredientRepository ingredientRepository) 
+            => this.ingredientRepository = 
+                ingredientRepository ?? 
+                throw new ArgumentNullException(nameof(ingredientRepository));
 
-        public IIngredientService Create()
-        {
-            return new IngredientService(ingredientRepository);
-        }
+        public IIngredientService Create() => new IngredientService(ingredientRepository);
     }
 }

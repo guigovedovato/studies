@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,15 +11,13 @@ namespace HealthyFoodSuggestion.API.Controllers
     {
         private readonly ISuggestion suggestion;
 
-        public SuggestionController(ISuggestion suggestion)
-        {
-            this.suggestion = suggestion ?? throw new System.ArgumentNullException(nameof(suggestion));
-        }
+        public SuggestionController(ISuggestion suggestion) 
+            => this.suggestion = 
+                suggestion ?? 
+                throw new System.ArgumentNullException(nameof(suggestion));
 
         [HttpGet("{type}/{ingredient}")]
-        public async Task<IActionResult> GetAsync(byte type, string ingredient)
-        {
-            return Ok(await this.suggestion.RetrieveSuggestionsAsync(ingredient, type));
-        }
+        public async Task<IActionResult> GetAsync(RecipeType type, string ingredient) 
+            => Ok(await this.suggestion.RetrieveSuggestionsAsync(ingredient, type));
     }
 }

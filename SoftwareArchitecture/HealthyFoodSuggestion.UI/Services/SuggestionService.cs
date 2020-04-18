@@ -11,14 +11,14 @@ namespace HealthyFoodSuggestion.UI.Services
     {
         private readonly HttpClient httpClient;
 
-        public SuggestionService(HttpClient httpClient)
-        {
-            this.httpClient = httpClient ?? throw new System.ArgumentNullException(nameof(httpClient));
-        }
+        public SuggestionService(HttpClient httpClient) 
+            => this.httpClient = 
+                httpClient ?? 
+                throw new System.ArgumentNullException(nameof(httpClient));
 
         public async Task<IEnumerable<Recipe>> GetRecipesAsync(SuggestionRequest request)
         {
-            var response = await httpClient.GetStringAsync($"v1/suggestion/{request.Type}/{request.ingredient}");
+            var response = await httpClient.GetStringAsync($"v1/suggestion/{request.Type}/{request.Ingredient}");
             return JsonSerializer.Deserialize<IEnumerable<Recipe>>(response);
         }
     }

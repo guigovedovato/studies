@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using HealthyFoodSuggestion.Data.Model;
-using HealthyFoodSuggestion.Domain.Enum;
 
 namespace HealthyFoodSuggestion.Data.Mapper
 {
@@ -15,7 +13,7 @@ namespace HealthyFoodSuggestion.Data.Mapper
                 {
                     Description = recipe.Description,
                     Id = recipe.Id,
-                    Type = (RecipeType)recipe.Type,
+                    Type = recipe.Type,
                     Ingredients = GetIngredient(recipe.Ingredients)
                 };
             }

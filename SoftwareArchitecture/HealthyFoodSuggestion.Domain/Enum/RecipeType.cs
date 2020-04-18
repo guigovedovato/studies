@@ -2,8 +2,9 @@ namespace HealthyFoodSuggestion.Domain.Enum
 {
     public enum RecipeType
     {
-        Vegetarian,
-        Vegan,
-        Omnivore
+        Unknown = 0,
+        Vegetarian = 1,
+        Vegan = 2,
+        Omnivore = 3
     }
 }

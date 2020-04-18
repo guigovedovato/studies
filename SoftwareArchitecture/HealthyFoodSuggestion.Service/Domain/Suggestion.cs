@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Domain.Model;
 using HealthyFoodSuggestion.Service.Extensions;
 using HealthyFoodSuggestion.Service.Interface;
@@ -17,9 +18,9 @@ namespace HealthyFoodSuggestion.Service.Domain
             this.ingredientFactory = ingredientFactory ?? throw new System.ArgumentNullException(nameof(ingredientFactory));
         }
 
-        public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, byte type)
+        public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, RecipeType type)
             =>  await recipeFactory
-                        .Create(type.MapToModel())
+                        .Create(type)
                         .RetrieveRecipesAsync(
                             await ingredientFactory.Create().GetIngredientAsync(ingredient.ToLower())
                         );

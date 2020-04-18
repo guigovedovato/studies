@@ -1,0 +1,15 @@
+API
+ - Log
+ - Auth
+Data
+ - Log
+ - Mongo Connection
+ - Mongo Collection
+ - BaseRepositry
+ - mapper (auto mapper)
+Service
+ - Log
+UI
+ - Log
+ - Auth
+ - form
