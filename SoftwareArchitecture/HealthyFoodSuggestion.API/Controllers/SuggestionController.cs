@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HealthyFoodSuggestion.API.Controllers
 {
     [ApiController]
-    [Route("v1/[controller]")]
+    [Route("[controller]")]
     public class SuggestionController : ControllerBase
     {
         private readonly ISuggestion suggestion;
@@ -16,7 +16,7 @@ namespace HealthyFoodSuggestion.API.Controllers
                 suggestion ?? 
                 throw new System.ArgumentNullException(nameof(suggestion));
 
-        [HttpGet("{type}/{ingredient}")]
+        [HttpGet("v1/{type}/{ingredient}")]
         public async Task<IActionResult> GetAsync(RecipeType type, string ingredient) 
             => Ok(await this.suggestion.RetrieveSuggestionsAsync(ingredient, type));
     }

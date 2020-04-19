@@ -18,7 +18,7 @@ namespace HealthyFoodSuggestion.UI.Services
 
         public async Task<IEnumerable<Recipe>> GetRecipesAsync(SuggestionRequest request)
         {
-            var response = await httpClient.GetStringAsync($"v1/suggestion/{request.Type}/{request.Ingredient}");
+            var response = await httpClient.GetStringAsync($"suggestion/v1/{request.Type}/{request.Ingredient}");
             return JsonSerializer.Deserialize<IEnumerable<Recipe>>(response);
         }
     }
