@@ -2,6 +2,7 @@ API
  - Log
  - Auth
  - Test
+ - Error Handler
 Data
  - Log
  - Mongo Connection
@@ -9,10 +10,13 @@ Data
  - BaseRepositry
  - mapper (auto mapper)
  - Test
+ - Error Handler
 Service
  - Log
  - Test
+ - Error Handler
 UI
  - Log
  - Auth
  - form
+ - Error Handler
