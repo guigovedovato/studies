@@ -1,14 +1,17 @@
 API
  - Log
  - Auth
+ - Test
 Data
  - Log
  - Mongo Connection
  - Mongo Collection
  - BaseRepositry
  - mapper (auto mapper)
+ - Test
 Service
  - Log
+ - Test
 UI
  - Log
  - Auth
