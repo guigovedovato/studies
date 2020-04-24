@@ -3,6 +3,7 @@ API
  - Auth
  - Test
  - Error Handler
+ - Cache
 Data
  - Log
  - Mongo Connection
@@ -11,6 +12,7 @@ Data
  - mapper (auto mapper)
  - Test
  - Error Handler
+ - Cache
 Service
  - Log
  - Test
