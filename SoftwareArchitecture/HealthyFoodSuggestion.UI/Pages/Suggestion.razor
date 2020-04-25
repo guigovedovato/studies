@@ -41,5 +41,7 @@ else
         cancellationTokenSource = new System.Threading.CancellationTokenSource();
 
         Recipes = await suggestionService.GetRecipesAsync(request, cancellationTokenSource.Token);
+
+        cancellationTokenSource = null;
     }
 }

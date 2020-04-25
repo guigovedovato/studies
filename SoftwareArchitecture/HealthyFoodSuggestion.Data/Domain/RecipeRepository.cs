@@ -5,16 +5,18 @@ using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Data.Model;
 using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Data.Mapper;
+using AutoMapper;
 
 namespace HealthyFoodSuggestion.Data.Domain
 {
     internal class RecipeRepository : IRecipeRepository
     {
         private readonly IEnumerable<Recipe> recipes;
+        private readonly IMapper mapper;
 
-        public RecipeRepository() 
-            => this.recipes = new List<Recipe>
+        public RecipeRepository(IMapper mapper)
+        {
+            recipes = new List<Recipe>
                 {
                     new Recipe
                     {
@@ -33,11 +35,15 @@ namespace HealthyFoodSuggestion.Data.Domain
                     }
                 };
 
+            this.mapper = mapper ?? 
+                throw new ArgumentNullException(nameof(mapper));
+        }
+
         public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(HealthyFoodSuggestion.Domain.Model.Ingredient ingredient, RecipeType type) 
-            => await Task.FromResult(this.recipes
+            => await Task.FromResult(this.mapper.Map<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>>(this.recipes
                     .Where(r =>
                             r.Ingredients.Where(i => i.Id.Equals(ingredient.Id)).Any() &&
                             r.Type == type)
-                    .ToList().ToDomain());
+                    .ToList()));
     }
 }

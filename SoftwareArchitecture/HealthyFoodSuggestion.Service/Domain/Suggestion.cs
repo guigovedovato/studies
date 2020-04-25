@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using HealthyFoodSuggestion.Domain.Enum;
@@ -16,6 +17,16 @@ namespace HealthyFoodSuggestion.Service.Domain
         {
             this.recipeFactory = recipeFactory ?? throw new System.ArgumentNullException(nameof(recipeFactory));
             this.ingredientFactory = ingredientFactory ?? throw new System.ArgumentNullException(nameof(ingredientFactory));
+        }
+
+        public Task<IEnumerable<Recipe>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Recipe> GetByIdAsync(Guid id)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, RecipeType type)

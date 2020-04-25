@@ -9,7 +9,6 @@ Data
  - Mongo Connection
  - Mongo Collection
  - BaseRepositry
- - mapper (auto mapper)
  - Test
  - Error Handler
  - Cache
