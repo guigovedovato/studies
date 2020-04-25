@@ -8,7 +8,7 @@
 
 @if(Recipes is null)
 {
-    <span><strong>Loading...</strong></span>
+    <p><em>Loading...</em></p>
 }
 else
 {
@@ -27,8 +27,19 @@ else
     public SuggestionRequest request { get; set; } = 
                     new SuggestionRequest() { Ingredient = "beterraba", Type = RecipeType.Vegetarian };
 
+    private System.Threading.CancellationTokenSource cancellationTokenSource = null;
+
     protected override async Task OnInitializedAsync()
     {
-        Recipes = await suggestionService.GetRecipesAsync(request);
+        if(!(cancellationTokenSource is null))
+        {
+            cancellationTokenSource.Cancel();
+            cancellationTokenSource = null;
+            return;
+        }
+
+        cancellationTokenSource = new System.Threading.CancellationTokenSource();
+
+        Recipes = await suggestionService.GetRecipesAsync(request, cancellationTokenSource.Token);
     }
 }

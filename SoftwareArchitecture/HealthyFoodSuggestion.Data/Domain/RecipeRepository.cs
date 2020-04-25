@@ -34,10 +34,10 @@ namespace HealthyFoodSuggestion.Data.Domain
                 };
 
         public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(HealthyFoodSuggestion.Domain.Model.Ingredient ingredient, RecipeType type) 
-            => this.recipes
+            => await Task.FromResult(this.recipes
                     .Where(r =>
                             r.Ingredients.Where(i => i.Id.Equals(ingredient.Id)).Any() &&
                             r.Type == type)
-                    .ToList().ToDomain();
+                    .ToList().ToDomain());
     }
 }

@@ -25,6 +25,7 @@ namespace HealthyFoodSuggestion.Data.Domain
                 };
 
         public async Task<HealthyFoodSuggestion.Domain.Model.Ingredient> GetIngredientAsync(string name) 
-            => Task.FromResult(this.ingredients.SingleOrDefault(i => i.Name.ToLower().Equals(name)).ToDomain());
+            => await Task.FromResult(this.ingredients
+                    .SingleOrDefault(i => i.Name.ToLower().Equals(name)).ToDomain());
     }
 }
