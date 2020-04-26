@@ -32,6 +32,36 @@ namespace HealthyFoodSuggestion.Data.Domain
                                 Group = FoodGroup.Vegetables
                             }
                         }
+                    },
+                    new Recipe
+                    {
+                        Id = Guid.NewGuid(),
+                        Type = RecipeType.Vegetarian,
+                        Description = "Bla Bla Bla",
+                        Ingredients = new List<Ingredient>
+                        {
+                            new Ingredient
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = "berinjela",
+                                Group = FoodGroup.Vegetables
+                            }
+                        }
+                    },
+                    new Recipe
+                    {
+                        Id = Guid.NewGuid(),
+                        Type = RecipeType.Vegan,
+                        Description = "Bla Bla Bla",
+                        Ingredients = new List<Ingredient>
+                        {
+                            new Ingredient
+                            {
+                                Id = Guid.NewGuid(),
+                                Name = "Nabo",
+                                Group = FoodGroup.Vegetables
+                            }
+                        }
                     }
                 };
 
@@ -39,11 +69,18 @@ namespace HealthyFoodSuggestion.Data.Domain
                 throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(HealthyFoodSuggestion.Domain.Model.Ingredient ingredient, RecipeType type) 
-            => await Task.FromResult(this.mapper.Map<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>>(this.recipes
-                    .Where(r =>
-                            r.Ingredients.Where(i => i.Id.Equals(ingredient.Id)).Any() &&
-                            r.Type == type)
-                    .ToList()));
+        public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(RecipeType type, HealthyFoodSuggestion.Domain.Model.Ingredient ingredient) 
+        {
+            var query = this.recipes.AsQueryable()
+                    .Where(r => r.Type == type);
+            
+            if (!(ingredient is null))
+            {
+                query = query.Where(r => r.Ingredients.Any(i => ingredient.Id.ToString() == i.Id.ToString()));
+            }
+
+            return await Task.FromResult(
+                this.mapper.Map<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>>(query.ToList()));
+        }
     }
 }

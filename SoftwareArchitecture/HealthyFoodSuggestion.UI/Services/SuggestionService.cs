@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using HealthyFoodSuggestion.Domain.Model;
 using System.Text.Json;
-using HealthyFoodSuggestion.Domain.Dto;
+using HealthyFoodSuggestion.Domain.Parameters;
 
 namespace HealthyFoodSuggestion.UI.Services
 {
@@ -18,10 +18,10 @@ namespace HealthyFoodSuggestion.UI.Services
                 throw new System.ArgumentNullException(nameof(httpClient));
 
         public async Task<IEnumerable<Recipe>> GetRecipesAsync(
-            SuggestionRequest request,
+            SuggestionParameters parameters,
             CancellationToken cancellationToken)
         {
-            var response = await httpClient.GetAsync($"api/suggestions/v1/{request.Type}/{request.Ingredient}",
+            var response = await httpClient.GetAsync($"api/suggestions/v1?type={parameters.Type}&ingredient={parameters.Ingredient}",
                 cancellationToken);
 
             response.EnsureSuccessStatusCode();

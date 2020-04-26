@@ -28,8 +28,6 @@ namespace HealthyFoodSuggestion.API
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver()
             );
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            
             services.RegisterServices();
         }
 

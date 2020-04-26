@@ -18,6 +18,6 @@ namespace HealthyFoodSuggestion.Service.Business.Recipe
                 throw new System.ArgumentNullException(nameof(recipeRepository));
 
         public async Task<IEnumerable<RecipeModel>> RetrieveRecipesAsync(IngredientModel ingredient) 
-            => await this.recipeRepository.RetrieveRecipesAsync(ingredient, RecipeType.Vegetarian);
+            => await this.recipeRepository.RetrieveRecipesAsync(RecipeType.Vegetarian, ingredient);
     }
 }

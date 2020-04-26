@@ -1,6 +1,6 @@
 @page "/suggestion"
 @using HealthyFoodSuggestion.Domain.Model
-@using HealthyFoodSuggestion.Domain.Dto
+@using HealthyFoodSuggestion.Domain.Parameters
 @using HealthyFoodSuggestion.Domain.Enum
 @inject ISuggestionService suggestionService
 
@@ -24,8 +24,8 @@ else
 @code {
     private IEnumerable<Recipe> Recipes;
 
-    public SuggestionRequest request { get; set; } = 
-                    new SuggestionRequest() { Ingredient = "beterraba", Type = RecipeType.Vegetarian };
+    public SuggestionParameters request { get; set; } = 
+                    new SuggestionParameters() { Ingredient = "beterraba", Type = RecipeType.Vegetarian };
 
     private System.Threading.CancellationTokenSource cancellationTokenSource = null;
 

@@ -7,6 +7,6 @@ namespace HealthyFoodSuggestion.Data.Interface
 {
     public interface IRecipeRepository
     {
-         Task<IEnumerable<Recipe>> RetrieveRecipesAsync(Ingredient ingredient, RecipeType type);
+         Task<IEnumerable<Recipe>> RetrieveRecipesAsync(RecipeType type, Ingredient ingredient);
     }
 }

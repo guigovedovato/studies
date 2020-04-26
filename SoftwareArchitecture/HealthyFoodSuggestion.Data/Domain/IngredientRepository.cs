@@ -4,7 +4,6 @@ using HealthyFoodSuggestion.Data.Interface;
 using HealthyFoodSuggestion.Data.Model;
 using HealthyFoodSuggestion.Domain.Enum;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Data.Mapper;
 using System;
 using AutoMapper;
 

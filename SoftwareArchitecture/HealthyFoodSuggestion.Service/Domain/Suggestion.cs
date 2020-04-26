@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Domain.Model;
-using HealthyFoodSuggestion.Service.Extensions;
+using HealthyFoodSuggestion.Domain.Parameters;
 using HealthyFoodSuggestion.Service.Interface;
 
 namespace HealthyFoodSuggestion.Service.Domain
@@ -15,25 +13,29 @@ namespace HealthyFoodSuggestion.Service.Domain
 
         public Suggestion(IRecipeFactory recipeFactory, IIngredientFactory ingredientFactory)
         {
-            this.recipeFactory = recipeFactory ?? throw new System.ArgumentNullException(nameof(recipeFactory));
-            this.ingredientFactory = ingredientFactory ?? throw new System.ArgumentNullException(nameof(ingredientFactory));
+            this.recipeFactory = recipeFactory ?? 
+                throw new System.ArgumentNullException(nameof(recipeFactory));
+            this.ingredientFactory = ingredientFactory ?? 
+                throw new System.ArgumentNullException(nameof(ingredientFactory));
         }
 
-        public Task<IEnumerable<Recipe>> GetAllAsync()
+        public async Task<IEnumerable<Recipe>> GetAllAsync(SuggestionParameters suggestionParameters)
+        => await recipeFactory
+                    .Create(suggestionParameters.Type)
+                    .RetrieveRecipesAsync(await CreateIngredient(suggestionParameters.Ingredient));
+
+        private async Task<Ingredient> CreateIngredient(string ingredient)
         {
-            throw new NotImplementedException();
-        }
+            Ingredient ingredientModel = null;
 
-        public Task<Recipe> GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException();
-        }
+            if (!string.IsNullOrWhiteSpace(ingredient))
+            {
+                ingredientModel = await ingredientFactory
+                                         .Create()
+                                         .GetIngredientAsync(ingredient.ToLower());
+            }
 
-        public async Task<IEnumerable<Recipe>> RetrieveSuggestionsAsync(string ingredient, RecipeType type)
-            =>  await recipeFactory
-                        .Create(type)
-                        .RetrieveRecipesAsync(
-                            await ingredientFactory.Create().GetIngredientAsync(ingredient.ToLower())
-                        );
+            return ingredientModel;
+        }
     }
 }

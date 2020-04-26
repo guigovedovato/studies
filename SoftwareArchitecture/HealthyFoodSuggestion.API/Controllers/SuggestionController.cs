@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using HealthyFoodSuggestion.Domain.Dto;
 using HealthyFoodSuggestion.Domain.Enum;
+using HealthyFoodSuggestion.Domain.Parameters;
 using HealthyFoodSuggestion.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,35 +21,28 @@ namespace HealthyFoodSuggestion.API.Controllers
         {
             this.suggestion = suggestion ?? 
                 throw new ArgumentNullException(nameof(suggestion));
-
             this.mapper = mapper ?? 
                 throw new ArgumentNullException(nameof(mapper));
         }
 
         [HttpGet("v1")]
-        public async Task<ActionResult> GetAsync()
+        [HttpHead("v1")]
+        public async Task<ActionResult<IEnumerable<RecipeDto>>> GetAsync(
+            [FromQuery] SuggestionParameters suggestionParameters)
         {
-            var suggestionsFromRepo = await this.suggestion.GetAllAsync();
-
-            return Ok(mapper.Map<IEnumerable<RecipeDto>>(suggestionsFromRepo));
-        }
-
-        [HttpGet("v1/{id}")]
-        public async Task<IActionResult> GetAsync(Guid id)
-        {
-            if (id.Equals(Guid.Empty))
+            if (suggestionParameters?.Type == RecipeType.Unknown)
             {
                 return BadRequest();
             }
 
-            var suggestionFromRepo = await this.suggestion.GetByIdAsync(id);
+            var suggestionsFromRepo = await this.suggestion.GetAllAsync(suggestionParameters);
 
-            if (suggestionFromRepo is null)
+            if (suggestionsFromRepo is null)
             {
                 return NotFound();
             }
 
-            return Ok(mapper.Map<RecipeDto>(suggestionFromRepo));
+            return Ok(mapper.Map<IEnumerable<RecipeDto>>(suggestionsFromRepo));
         }
     }
 }
