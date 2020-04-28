@@ -21,7 +21,7 @@ namespace HealthyFoodSuggestion.UI.Services
             SuggestionParameters parameters,
             CancellationToken cancellationToken)
         {
-            var response = await httpClient.GetAsync($"api/suggestions/v1?type={parameters.Type}&ingredient={parameters.Ingredient}",
+            var response = await httpClient.GetAsync($"api/v1/suggestions?type={parameters.Type}&ingredient={parameters.Ingredient}",
                 cancellationToken);
 
             response.EnsureSuccessStatusCode();

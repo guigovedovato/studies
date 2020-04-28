@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HealthyFoodSuggestion.API.Controllers
 {
     [ApiController]
-    [Route("api/suggestions")]
+    [Route("api/v1/[Controller]")]
     public class SuggestionsController : ControllerBase
     {
         private readonly ISuggestion suggestion;
@@ -25,8 +25,8 @@ namespace HealthyFoodSuggestion.API.Controllers
                 throw new ArgumentNullException(nameof(mapper));
         }
 
-        [HttpGet("v1")]
-        [HttpHead("v1")]
+        [HttpGet]
+        [HttpHead]
         public async Task<ActionResult<IEnumerable<RecipeDto>>> GetAsync(
             [FromQuery] SuggestionParameters suggestionParameters)
         {
@@ -43,6 +43,13 @@ namespace HealthyFoodSuggestion.API.Controllers
             }
 
             return Ok(mapper.Map<IEnumerable<RecipeDto>>(suggestionsFromRepo));
+        }
+
+        [HttpOptions]
+        public IActionResult GetOptions()
+        {
+            Response.Headers.Add("Allow", "GET, OPTIONS");
+            return Ok();
         }
     }
 }
