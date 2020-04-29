@@ -4,6 +4,8 @@ API
  - Test
  - Error Handler
  - Cache
+ - Paging
+ - Sorting
 Data
  - Log
  - Mongo Connection
@@ -11,11 +13,12 @@ Data
  - BaseRepositry
  - Test
  - Error Handler
- - Cache
 Service
  - Log
  - Test
  - Error Handler
+Domain
+ - internal Models
 UI
  - Log
  - Auth
