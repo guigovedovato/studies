@@ -5,6 +5,8 @@ API
  - Error Handler
  - Cache
  - Validation
+ - Paging
+ - Sorting
 Data
  - Log
  - Mongo Connection
@@ -18,6 +20,8 @@ Service
  - Test
  - Error Handler
  - Validation
+Domain
+ - internal Models
 UI
  - Log
  - Auth
