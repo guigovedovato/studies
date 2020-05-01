@@ -7,7 +7,6 @@ API
 Data
  - Mongo Connection
  - Mongo Collection
- - BaseRepositry
  - Test
  - Error Handler
  - Logging

@@ -5,13 +5,12 @@ using AutoMapper;
 using HealthyFoodSuggestion.Domain.Dto;
 using HealthyFoodSuggestion.Domain.Parameters;
 using HealthyFoodSuggestion.Service.Interface;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthyFoodSuggestion.API.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("api/v1/[Controller]")]
     public class SuggestionsController : ControllerBase

@@ -5,9 +5,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 
 namespace HealthyFoodSuggestion.API
 {
@@ -41,17 +38,17 @@ namespace HealthyFoodSuggestion.API
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
 
-            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options => {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
+            // var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
+            // services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            //     .AddJwtBearer(options => {
+            //         options.TokenValidationParameters = new TokenValidationParameters
+            //         {
+            //             ValidateIssuerSigningKey = true,
+            //             IssuerSigningKey = new SymmetricSecurityKey(key),
+            //             ValidateIssuer = false,
+            //             ValidateAudience = false
+            //         };
+            //     });
 
             services.RegisterServices();
         }
@@ -70,7 +67,7 @@ namespace HealthyFoodSuggestion.API
 
             app.UseCors();
 
-            app.UseAuthentication();
+            // app.UseAuthentication();
 
             app.UseAuthorization();
 
