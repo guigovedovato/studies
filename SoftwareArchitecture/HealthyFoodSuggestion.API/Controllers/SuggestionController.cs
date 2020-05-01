@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using HealthyFoodSuggestion.Domain.Dto;
-using HealthyFoodSuggestion.Domain.Enum;
 using HealthyFoodSuggestion.Domain.Parameters;
 using HealthyFoodSuggestion.Service.Interface;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthyFoodSuggestion.API.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/v1/[Controller]")]
     public class SuggestionsController : ControllerBase
@@ -25,17 +27,13 @@ namespace HealthyFoodSuggestion.API.Controllers
                 throw new ArgumentNullException(nameof(mapper));
         }
 
+        [EnableCors("AllowOrigin")]
         [HttpGet]
         [HttpHead]
-        [ResponseCache(Duration = 120)]
+        [ResponseCache(Duration = 3600, VaryByQueryKeys = new [] { "*" } )]
         public async Task<ActionResult<IEnumerable<RecipeDto>>> GetAsync(
             [FromQuery] SuggestionParameters suggestionParameters)
         {
-            if (suggestionParameters?.Type == RecipeType.Unknown)
-            {
-                return BadRequest();
-            }
-
             var suggestionsFromRepo = await this.suggestion.GetAllAsync(suggestionParameters);
 
             if (suggestionsFromRepo is null)

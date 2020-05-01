@@ -11,8 +11,8 @@ namespace HealthyFoodSuggestion.Data.IoC
         public static IServiceCollection DataRegisterServices(this IServiceCollection services)
         {
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddSingleton<IIngredientRepository, IngredientRepository>();
-            services.AddSingleton<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
             return services;
         }
     }

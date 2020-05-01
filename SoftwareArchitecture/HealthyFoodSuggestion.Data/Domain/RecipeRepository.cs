@@ -71,8 +71,12 @@ namespace HealthyFoodSuggestion.Data.Domain
 
         public async Task<IEnumerable<HealthyFoodSuggestion.Domain.Model.Recipe>> RetrieveRecipesAsync(RecipeType type, HealthyFoodSuggestion.Domain.Model.Ingredient ingredient) 
         {
-            var query = this.recipes.AsQueryable()
-                    .Where(r => r.Type == type);
+            var query = this.recipes.AsQueryable();
+
+            if (!type.Equals(RecipeType.Unknown))
+            {
+                query = query.Where(r => r.Type == type);
+            }
             
             if (!(ingredient is null))
             {

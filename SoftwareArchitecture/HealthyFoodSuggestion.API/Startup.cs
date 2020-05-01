@@ -1,5 +1,3 @@
-using System;
-using AutoMapper;
 using HealthyFoodSuggestion.Service.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace HealthyFoodSuggestion.API
 {
@@ -23,12 +24,34 @@ namespace HealthyFoodSuggestion.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddResponseCaching();
-            
-            services.AddControllers(setupAction =>
-                setupAction.ReturnHttpNotAcceptable = true
-            ).AddNewtonsoftJson(options =>
-                options.SerializerSettings.ContractResolver = new DefaultContractResolver()
-            );
+
+            services.AddCors(options => {
+                options.AddPolicy(name: "AllowOrigin",
+                    builder => builder.WithOrigins(
+                                                Configuration
+                                                    .GetSection("Origin:Uri")
+                                                    .Value)
+                                      .WithMethods("POST")
+                );
+            });
+
+            services.AddControllers(options => {
+                options.ReturnHttpNotAcceptable = true;
+            }).AddNewtonsoftJson(options => {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
+
+            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("AppSettings:Token").Value);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false
+                    };
+                });
 
             services.RegisterServices();
         }
@@ -44,6 +67,10 @@ namespace HealthyFoodSuggestion.API
             app.UseResponseCaching();
 
             app.UseRouting();
+
+            app.UseCors();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -1,29 +1,24 @@
 API
- - Log
- - Auth
  - Test
  - Error Handler
+ - Logging
  - Validation
  - Paging
- - Sorting
 Data
- - Log
  - Mongo Connection
  - Mongo Collection
  - BaseRepositry
  - Test
  - Error Handler
+ - Logging
  - Validation
 Service
- - Log
  - Test
  - Error Handler
+ - Logging
  - Validation
-Domain
- - internal Models
 UI
- - Log
- - Auth
  - form
  - Error Handler
+ - Logging
  - Validation

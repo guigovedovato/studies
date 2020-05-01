@@ -25,7 +25,7 @@ namespace HealthyFoodSuggestion.Service.Business.Recipe
                 case RecipeType.Omnivore:
                     return new OmnivoreRecipeService(recipeRepository);
                 default:
-                    throw new ApplicationException("Recipe Type unknown");
+                    return new RecipeService(recipeRepository);
             }
         }
     }

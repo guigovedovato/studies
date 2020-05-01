@@ -24,11 +24,12 @@ namespace HealthyFoodSuggestion.UI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddHttpClient<ISuggestionService, SuggestionService>(
-                client => 
+                client => {
                     client.BaseAddress = new Uri(
-                        Configuration.GetSection("ServiceApi").GetSection("Uri").Value
-                    )
-            );
+                        Configuration.GetSection("ServiceApi:Uri").Value
+                    );
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJIZWFsdGh5Rm9vZFN1Z2dlc3Rpb24iLCJpYXQiOjE1ODgzNDA4NzAsImV4cCI6MTYxOTg3Njg3MCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS8iLCJzdWIiOiJBcHBVc2VyIiwiVXNlclR5cGUiOiJCbGF6b3IgVXNlciJ9.3SYuedMA7kjqfx9fy3iC1ZzHct-7qHGyG6wBAD_0lME");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
