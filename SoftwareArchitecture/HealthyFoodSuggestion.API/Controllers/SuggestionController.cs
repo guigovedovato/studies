@@ -27,6 +27,7 @@ namespace HealthyFoodSuggestion.API.Controllers
 
         [HttpGet]
         [HttpHead]
+        [ResponseCache(Duration = 120)]
         public async Task<ActionResult<IEnumerable<RecipeDto>>> GetAsync(
             [FromQuery] SuggestionParameters suggestionParameters)
         {

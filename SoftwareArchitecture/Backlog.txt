@@ -3,7 +3,6 @@ API
  - Auth
  - Test
  - Error Handler
- - Cache
  - Validation
  - Paging
  - Sorting
