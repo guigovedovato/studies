@@ -17,6 +17,7 @@ Service
  - Error Handler
  - Logging
  - Validation
+ - apply c# 8 switch
 UI
  - form
  - Error Handler
