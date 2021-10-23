@@ -1,6 +1,6 @@
 # Python
 
-It is a simple project to study python language
+In this session, we have studies on artificial intelligence
 
 ## Techs, Frameworks & Libraries
 

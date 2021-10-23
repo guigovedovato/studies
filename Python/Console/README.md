@@ -1,6 +1,6 @@
 # Python
 
-It is a simple project to study python language
+IIn this session, we have studies on console application
 
 ## Techs, Frameworks & Libraries
 
