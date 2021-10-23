@@ -1,6 +1,6 @@
 # Python
 
-It is a simple project to study python language
+It is a simple repository to study python language
 
 ## Techs, Frameworks & Libraries
 
