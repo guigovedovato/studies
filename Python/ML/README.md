@@ -1,6 +1,6 @@
 # Python
 
-In this session, we have studies on machine learning
+In this session, there are studies on machine learning
 
 ## Techs, Frameworks & Libraries
 

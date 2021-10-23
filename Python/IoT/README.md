@@ -1,6 +1,6 @@
 # Python
 
-In this session, we have studies on internet of things
+In this session, there are studies on internet of things
 
 ## Techs, Frameworks & Libraries
 

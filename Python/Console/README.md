@@ -1,6 +1,6 @@
 # Python
 
-IIn this session, we have studies on console application
+In this session, there are studies on console applications and algorithms
 
 ## Techs, Frameworks & Libraries
 
