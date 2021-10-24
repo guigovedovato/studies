@@ -11,11 +11,12 @@ def randomValues(number):
     else:
         print(f"Oh no! I picked {randrange(100)}")
 
+print("Pick a number between 1 and 100")
 attempts = 3
 print(f"You have {attempts} attempts")
 while attempts > 0:
     try:
-        print("Pick a number between 1 and 100:")
+        print("Your number is:")
         choice = int(input())
         break
     except ValueError:

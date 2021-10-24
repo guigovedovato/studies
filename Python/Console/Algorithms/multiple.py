@@ -1,4 +1,5 @@
 # Check if a number is a multiple of 3 and/or 7
+print("Enter a number and check out if it is mutiple of 3 and/or 7")
 attempts = 3
 print(f"You have {attempts} attempts")
 while attempts > 0:

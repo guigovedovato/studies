@@ -13,8 +13,7 @@ def fizzbuzz(number):
         case _:
             return number
 
-print("FizzBuzz for numbers:")
-
+print("FizzBuzz between numbers")
 attempts = 3
 print(f"You have {attempts} attempts")
 while True:
