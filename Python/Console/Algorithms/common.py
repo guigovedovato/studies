@@ -1,4 +1,5 @@
-def EnterNumber(attempts):
+# This method perform to get value of a number and return its
+def enterNumber(attempts):
     print(f"You have {attempts} attempts")
     while attempts > 0:
         try:
@@ -10,7 +11,7 @@ def EnterNumber(attempts):
                 attempts -= 1
                 print(f"You have {attempts} attempts")
 
-    if attempts == 0:
+    if attempts is 0:
         print("Bye!!!")
         quit()
 

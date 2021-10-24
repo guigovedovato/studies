@@ -39,7 +39,7 @@ while True:
             attempts -= 1
             print(f"You have {attempts} attempts")
 
-if attempts == 0:
+if attempts is 0:
     print("Bye!!!")
     quit()
     
