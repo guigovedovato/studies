@@ -1,5 +1,6 @@
 # Create a random range of numbers and pick 1
 from random import sample, randrange
+import common
 
 def randomValues(number):
     values = sample(range(1, 101), k=randrange(100))
@@ -13,21 +14,7 @@ def randomValues(number):
 
 print("Pick a number between 1 and 100")
 attempts = 3
-print(f"You have {attempts} attempts")
-while attempts > 0:
-    try:
-        print("Your number is:")
-        choice = int(input())
-        break
-    except ValueError:
-            print("You have not picked a number!!!")
-            attempts -= 1
-            print(f"You have {attempts} attempts")
-
-if attempts == 0:
-    print("Bye!!!")
-    quit()
-
+choice = common.EnterNumber(attempts)
 if choice >= 1 and choice <= 100:
     randomValues(choice)
 else:
