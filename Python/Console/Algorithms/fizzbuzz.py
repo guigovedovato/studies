@@ -14,8 +14,11 @@ def fizzbuzz(number):
             return number
 
 print("FizzBuzz between numbers")
+
 attempts = 3
+
 print(f"You have {attempts} attempts")
+
 while True:
     print("Enter the first number:")
     try:

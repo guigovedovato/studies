@@ -12,8 +12,11 @@ def randomValues(number):
         print(f"Oh no! I picked {randrange(100)}")
 
 print("Pick a number between 1 and 100")
+
 attempts = 3
+
 choice = common.enterNumber(attempts)
+
 if choice >= 1 and choice <= 100:
     randomValues(choice)
 else:

@@ -1,6 +1,8 @@
 # This method perform to get value of a number and return its
 def enterNumber(attempts):
+    
     print(f"You have {attempts} attempts")
+    
     while attempts > 0:
         try:
             print("Enter a number:")
