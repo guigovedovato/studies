@@ -1,6 +1,7 @@
 # Check if a number is a multiple of 3 and/or 7
 import common
 
+
 print("Enter a number and check out if it is mutiple of 3 and/or 7")
 
 attempts = 3

@@ -2,6 +2,7 @@
 from random import sample, randrange
 import common
 
+
 def randomValues(number):
     values = sample(range(1, 101), k=randrange(100))
     for v in sorted(values):
