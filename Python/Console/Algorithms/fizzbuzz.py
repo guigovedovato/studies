@@ -13,6 +13,7 @@ def fizzbuzz(number):
         case _:
             return number
 
+
 print("FizzBuzz between numbers")
 
 attempts = 3

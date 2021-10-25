@@ -9,8 +9,10 @@ def final():
     print("Press Enter to return")
     input()
     
+    
 def cls():
     os.system('cls')
+    
     
 def choice(name):
     while True:
@@ -29,6 +31,7 @@ def choice(name):
             print("You must enter a number")
             final()
     return userChoice
+
 
 library = Library(["Book 1", "Book 2", "Book 3",])
 
