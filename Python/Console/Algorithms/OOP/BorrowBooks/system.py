@@ -29,7 +29,7 @@ def choice(name):
             final()
     return userChoice
 
-library = Library(["Book 1", "Book 2", "Book 3"])
+library = Library(["Book 1", "Book 2", "Book 3",])
 
 cls()
 
