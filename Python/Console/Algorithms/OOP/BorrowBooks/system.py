@@ -44,24 +44,24 @@ if not userName:
 customer = Customer(userName)
 
 while True:
-    match choice(customer.getName()):
+    match choice(customer.get_name()):
         case 1:
             cls()
-            library.displayAvailableBooks()
+            library.display_available_books()
             final()
         case 2:
             cls()
-            if customer.checkReadingBooks():
-                requestedBook = customer.requestBook()
-                library.lendBook(requestedBook)
+            if customer.check_reading_books():
+                requestedBook = customer.request_book()
+                library.lend_book(requestedBook)
             else:
-                print(f"You are reading {customer.getReadingBooks()} book(s) at moment")
+                print(f"You are reading {customer.get_reading_books()} book(s) at moment")
             final()
         case 3:
             cls()
-            if customer.checkBorrowedBooks():
-                returnedBook = customer.returnBook()
-                library.addBook(returnedBook)
+            if customer.check_borrowed_books():
+                returnedBook = customer.return_book()
+                library.add_book(returnedBook)
             else:
                 print("You have no book to return")
             final()

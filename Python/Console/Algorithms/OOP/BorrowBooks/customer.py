@@ -10,35 +10,35 @@ class Customer(Person):
         self.__booksReading = 0
     
     
-    def requestBook(self):
-        self.__setNumberOfReadingBooks()
+    def request_book(self):
+        self.__set_number_of_reading_books()
         print("Enter the book name: ", end = ' ')
         self.book = input()
         return self.book
     
     
-    def returnBook(self):
-        self.__releaseNumberOfReadingBooks()
+    def return_book(self):
+        self.__release_number_of_reading_books()
         print("Enter the book name which is returning: ", end = ' ')
         self.book = input()
         return self.book
     
     
-    def getReadingBooks(self):
+    def get_reading_books(self):
         return self.__booksReading
     
     
-    def checkReadingBooks(self):
+    def check_reading_books(self):
         return self.__booksReading < self._maxReadingBooks
     
     
-    def checkBorrowedBooks(self):
+    def check_borrowed_books(self):
         return self.__booksReading > 0
     
     
-    def __setNumberOfReadingBooks(self):
+    def __set_number_of_reading_books(self):
         self.__booksReading += 1
         
         
-    def __releaseNumberOfReadingBooks(self):
+    def __release_number_of_reading_books(self):
         self.__booksReading -= 1

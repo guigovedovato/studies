@@ -5,14 +5,14 @@ class Library:
         self.availableBooks = listOfBooks
     
     
-    def displayAvailableBooks(self):
+    def display_available_books(self):
         print("Available Books: ")
         print()
-        for book in self.availableBooks:
+        for book in self.availableBooks.sort():
             print(book)
     
     
-    def lendBook(self, requestedBook):
+    def lend_book(self, requestedBook):
         if requestedBook in self.availableBooks:
             print("You have now borrowed the book")
             self.availableBooks.remove(requestedBook)
@@ -20,6 +20,6 @@ class Library:
             print("Sorry, the book is not available")
     
     
-    def addBook(self, returnedBook):
+    def add_book(self, returnedBook):
         self.availableBooks.append(returnedBook)
         print("You have returned the book, thanks")

@@ -8,5 +8,5 @@ class Person(metaclass = ABCMeta):
         self._name = name
         
         
-    def getName(self):
+    def get_name(self):
         return self._name

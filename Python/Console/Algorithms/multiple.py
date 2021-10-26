@@ -6,7 +6,7 @@ print("Enter a number and check out if it is mutiple of 3 and/or 7")
 
 attempts = 3
 
-number = common.enterNumber(attempts)
+number = common.enter_number(attempts)
 
 match (number % 3, number % 7):
     case (0, 0):

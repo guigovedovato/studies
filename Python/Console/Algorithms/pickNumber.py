@@ -3,7 +3,7 @@ from random import sample, randrange
 import common
 
 
-def randomValues(number):
+def random_values(number):
     values = sample(range(1, 101), k=randrange(100))
     for v in sorted(values):
         if v == number:
@@ -16,9 +16,9 @@ print("Pick a number between 1 and 100")
 
 attempts = 3
 
-choice = common.enterNumber(attempts)
+choice = common.enter_number(attempts)
 
 if choice >= 1 and choice <= 100:
-    randomValues(choice)
+    random_values(choice)
 else:
     print(f"Oh no! Your number {choice} is not between 1 and 100")

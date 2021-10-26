@@ -1,5 +1,5 @@
 # This method perform to get value of a number and return its
-def enterNumber(attempts):
+def enter_number(attempts):
     
     print(f"You have {attempts} attempts")
     

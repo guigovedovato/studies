@@ -1,5 +1,5 @@
 # FizzBuzz challenge
-def fizzbuzz(number):
+def fizz_buzz(number):
     mod_3 = number % 3
     mod_5 = number % 5
 
@@ -50,7 +50,7 @@ if attempts == 0:
 print(f"FizzBuzz for numbers from {first} to {last}")
 
 for n in range(first,last+1):
-    number = fizzbuzz(n)
+    number = fizz_buzz(n)
     if type(number) is int:
         continue
     print(f"Number {n} = {number}")
