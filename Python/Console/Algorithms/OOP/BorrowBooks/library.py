@@ -8,7 +8,7 @@ class Library:
     def display_available_books(self):
         print("Available Books: ")
         print()
-        for book in self.availableBooks.sort():
+        for book in sorted(self.availableBooks):
             print(book)
     
     
