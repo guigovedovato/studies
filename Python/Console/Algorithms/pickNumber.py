@@ -15,7 +15,11 @@ print("Pick a number between 1 and 100")
 
 attempts = 3
 
-choice = common.enter_number(attempts)
+try:
+    choice = common.enter_number(attempts)
+except ValueError as e:
+    print(e)
+    quit()
 
 if choice >= 1 and choice <= 100:
     random_values(choice)

@@ -29,6 +29,10 @@ while True:
             attempts -= 1
             print(f"You have {attempts} attempts")
             continue
+    finally:
+        if attempts == 0:
+            print("Bye!!!")
+            quit()
     print("Enter the last number:")
     try:
         last = int(input())
@@ -42,10 +46,10 @@ while True:
             print("You have not entered a number!!!")
             attempts -= 1
             print(f"You have {attempts} attempts")
-
-if attempts == 0:
-    print("Bye!!!")
-    quit()
+    finally:
+        if attempts == 0:
+            print("Bye!!!")
+            quit()
     
 print(f"FizzBuzz for numbers from {first} to {last}")
 

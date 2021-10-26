@@ -6,8 +6,12 @@ print("Enter a number and check out if it is mutiple of 3 and/or 7")
 
 attempts = 3
 
-number = common.enter_number(attempts)
-
+try:
+    number = common.enter_number(attempts)
+except ValueError as e:
+    print(e)
+    quit()
+                
 match (number % 3, number % 7):
     case (0, 0):
         print(f"Number: {number} is multiple of 3 and 7")

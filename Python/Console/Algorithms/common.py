@@ -12,9 +12,9 @@ def enter_number(attempts):
                 print("You have not entered a number!!!")
                 attempts -= 1
                 print(f"You have {attempts} attempts")
-
-    if attempts == 0:
-        print("Bye!!!")
-        quit()
+        finally:
+            if attempts == 0:
+                print("Bye!!!")
+                raise ValueError("You have not entered a number!!!")
 
     return number
