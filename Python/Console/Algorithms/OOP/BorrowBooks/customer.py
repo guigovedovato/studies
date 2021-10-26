@@ -3,10 +3,12 @@ from person import Person
 
 class Customer(Person):
         
+    
+    __maxReadingBooks = (2,)
+    
         
     def __init__(self, name):
         super().__init__(name)
-        self._maxReadingBooks = 2
         self.__booksReading = 0
     
     
@@ -29,7 +31,7 @@ class Customer(Person):
     
     
     def check_reading_books(self):
-        return self.__booksReading < self._maxReadingBooks
+        return self.__booksReading < self.__maxReadingBooks[0]
     
     
     def check_borrowed_books(self):

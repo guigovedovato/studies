@@ -4,8 +4,7 @@ import common
 
 
 def random_values(number):
-    values = sample(range(1, 101), k=randrange(100))
-    for v in sorted(values):
+    for v in sorted(sample(range(1, 101), k=randrange(100))):
         if v == number:
             print(f"{number} is mine as well, we have the same thoughts!!!")
             break
