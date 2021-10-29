@@ -36,8 +36,7 @@ library = Library(["Book 1", "Book 2", "Book 3",])
 
 cls()
 
-print("Enter your name:", end = ' ')
-userName = input()
+userName = input("Enter your name:")
 if not userName:
     userName = "Camarada"
 customer = Customer(userName)

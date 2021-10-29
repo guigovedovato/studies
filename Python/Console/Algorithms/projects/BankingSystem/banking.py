@@ -13,18 +13,14 @@ while True:
     match userChoice:
         case 1:
             print()
-            print("Enter your name: ")
-            name = input()
-            print("Enter the initial deposit: ")
-            deposit = int(input())
+            name = input("Enter your name: ")
+            deposit = int(input("Enter the initial deposit: "))
             savingsAccount.createAccount(name, deposit)
             print()
         case 2:
             print()
-            print("Enter your name: ")
-            name = input()
-            print("Enter your account number: ")
-            accountNumber = int(input())
+            name = input("Enter your name: ")
+            accountNumber = int(input("Enter your account number: "))
             authenticationStatus = savingsAccount.authenticate(name, accountNumber)
             print()
             if authenticationStatus is True:
@@ -39,8 +35,7 @@ while True:
                     match userChoice:
                         case 1:
                             print()
-                            print("Enter a withdrawal amount")
-                            withdrawalAmount = int(input())
+                            withdrawalAmount = int(input("Enter a withdrawal amount"))
                             savingsAccount.withdraw(withdrawalAmount)
                             print()
                         case 2:

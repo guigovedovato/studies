@@ -5,8 +5,7 @@ def enter_number(attempts):
     
     while attempts > 0:
         try:
-            print("Enter a number:")
-            number = int(input())
+            number = int(input("Enter a number:"))
             break
         except ValueError:
                 print("You have not entered a number!!!")

@@ -11,14 +11,12 @@ class Customer(Person):
     
     def request_book(self):
         self.__set_number_of_reading_books()
-        print("Enter the book name: ", end = ' ')
-        self.book = input()
+        self.book = input("Enter the book name: ")
         return self.book  
     
     def return_book(self):
         self.__release_number_of_reading_books()
-        print("Enter the book name which is returning: ", end = ' ')
-        self.book = input()
+        self.book = input("Enter the book name which is returning: ")
         return self.book  
     
     def get_reading_books(self):

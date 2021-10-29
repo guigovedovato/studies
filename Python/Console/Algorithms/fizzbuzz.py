@@ -21,9 +21,8 @@ attempts = 3
 print(f"You have {attempts} attempts")
 
 while True:
-    print("Enter the first number:")
     try:
-        first = int(input())
+        first = int(input("Enter the first number:"))
     except ValueError:
             print("You have not entered a number!!!")
             attempts -= 1
@@ -33,9 +32,8 @@ while True:
         if attempts == 0:
             print("Bye!!!")
             quit()
-    print("Enter the last number:")
     try:
-        last = int(input())
+        last = int(input("Enter the last number:"))
         if last < first:
             print("The last number must be greater than the first")
             attempts -= 1
