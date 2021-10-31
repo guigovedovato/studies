@@ -4,10 +4,8 @@ class Library:
         self._availableBooks = listOfBooks
     
     def display_available_books(self):
-        print("Available Books: ")
-        print()
-        for book in sorted(self._availableBooks):
-            print(book)
+        print("Available Books: ", end="\n\n")
+        print(", ".join(self._availableBooks))
     
     def lend_book(self, requestedBook):
         if requestedBook in self._availableBooks:
@@ -19,3 +17,7 @@ class Library:
     def add_book(self, returnedBook):
         self._availableBooks.append(returnedBook)
         print("You have returned the book, thanks")
+        
+    @staticmethod
+    def purpose():
+        return "Library purpose is borrow books"
