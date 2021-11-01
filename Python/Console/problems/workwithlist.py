@@ -1,3 +1,10 @@
+    """
+    list  = [,]      - mutable sequences of homogeneous items
+    dict  = {"":"",} - mapping object maps hashable values to arbitrary objects
+    tuple = (,)      - immutable sequences of heterogeneous data
+    set   = {,}      - unordered collection of distinct hashable objects
+    """
+
 import collections
 import itertools
 

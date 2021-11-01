@@ -10,7 +10,7 @@ def fibo(num):
 
 print(list(fibo(10)))
 
-## 3. Through Recursion
+## 2. Through Recursion
 def fibonacci_ser(n):
     if(n <= 1):
         return n

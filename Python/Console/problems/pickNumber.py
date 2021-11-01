@@ -11,6 +11,7 @@ def random_values(number):
     else:
         print(f"Oh no! I picked {randrange(100)}")
 
+
 print("Pick a number between 1 and 100")
 
 attempts = 3
