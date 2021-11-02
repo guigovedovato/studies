@@ -51,11 +51,18 @@ text = 'The quick brown fox jumps over the lazy dog.'
 print(re.findall(r"\b\w{5}\b", text))
 
 # Remove everything except alphanumeric characters from a string
-text1 = '**//Python Exercises// - 12. '
+text = '**//Python Exercises// - 12. '
 pattern = re.compile('[\W_]+')
-print(pattern.sub('', text1))
+print(pattern.sub('', text))
 
 # Remove the parenthesis area in a string
 items = ["example (.com)", "w3resource", "github (.com)", "stackoverflow (.com)"]
 for item in items:
     print(re.sub(r" ?\([^)]+\)", "", item))
+
+# Remove \n
+text = "Hello\n"
+print(text)
+print("World")
+print(text.rstrip('\n'))
+print("World")

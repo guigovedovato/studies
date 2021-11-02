@@ -11,16 +11,16 @@ def fibo(num):
 print(list(fibo(10)))
 
 ## 2. Through Recursion
-def fibonacci_ser(n):
+def fibonacci_rec(n):
     if(n <= 1):
         return n
     else:
-        return(fibonacci_ser(n-1) + fibonacci_ser(n-2))
+        return(fibonacci_rec(n-1) + fibonacci_rec(n-2))
     
     
 n = int(input("Enter number of terms: "))
 print("Fibonacci sequence:")
 fib = []
 for i in range(n):
-    fib.append(fibonacci_ser(i))
+    fib.append(fibonacci_rec(i))
 print(fib)
