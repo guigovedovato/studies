@@ -6,7 +6,7 @@ class Student(Customer):
     def __init__(self, name, course):
         super().__init__(name)
         self._course = course
-        self._maxReadingBooks = 5
+        self._max_reading_books = 5
         
     @property
     def couse(self):

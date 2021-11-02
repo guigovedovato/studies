@@ -24,13 +24,13 @@ def choice(name):
         print("Enter 3 to return a book")
         print("Enter 4 to exit")
         try:
-            userChoice = int(input())
+            user_choice = int(input())
             break
         except ValueError:
             cls()
             print("You must enter a number")
             final()
-    return userChoice
+    return user_choice
 
 
 cls()
@@ -44,12 +44,12 @@ print(f"Is there anyone in library? - {Person.is_in_action()}")
 input()
 
 cls()
-userName = input("Enter your name: ")
-if not userName:
+user_name = input("Enter your name: ")
+if not user_name:
     course = input("Enter your course: ")
     customer = Student("Student", course)
 else:
-    customer = Customer(userName)
+    customer = Customer(user_name)
 
 print(customer)
 input()
@@ -71,16 +71,16 @@ while True:
         case 2:
             cls()
             if customer.is_reading:
-                requestedBook = customer.request_book()
-                library.lend_book(requestedBook)
+                requested_book = customer.request_book()
+                library.lend_book(requested_book)
             else:
                 print(f"You are reading {customer.reading_books} book(s) at moment")
             final()
         case 3:
             cls()
             if customer.has_borrowed:
-                returnedBook = customer.return_book()
-                library.add_book(returnedBook)
+                returned_book = customer.return_book()
+                library.add_book(returned_book)
             else:
                 print("You have no book to return")
             final()

@@ -1,52 +1,52 @@
 from account import SavingsAccount
 
 
-savingsAccount = SavingsAccount()
+savings_account = SavingsAccount()
 
 while True:
     print()
     print("Enter 1 to create a new account")
     print("Enter 2 to access an existing account")
     print("Enter 3 to exit")
-    userChoice = int(input())
+    user_choice = int(input())
     print()
-    match userChoice:
+    match user_choice:
         case 1:
             print()
             name = input("Enter your name: ")
             deposit = int(input("Enter the initial deposit: "))
-            savingsAccount.createAccount(name, deposit)
+            savings_account.create_account(name, deposit)
             print()
         case 2:
             print()
             name = input("Enter your name: ")
-            accountNumber = int(input("Enter your account number: "))
-            authenticationStatus = savingsAccount.authenticate(name, accountNumber)
+            account_number = int(input("Enter your account number: "))
+            authentication_status = savings_account.authenticate(name, account_number)
             print()
-            if authenticationStatus is True:
+            if authentication_status is True:
                 while True:
                     print()
                     print("Enter 1 to withdraw")
                     print("Enter 2 to deposit")
                     print("Enter 3 to display avialable balance")
                     print("Enter 4 to go back to the previous menu")
-                    userChoice = int(input())
+                    user_choice = int(input())
                     print()
-                    match userChoice:
+                    match user_choice:
                         case 1:
                             print()
-                            withdrawalAmount = int(input("Enter a withdrawal amount"))
-                            savingsAccount.withdraw(withdrawalAmount)
+                            withdrawal_amount = int(input("Enter a withdrawal amount"))
+                            savings_account.withdraw(withdrawal_amount)
                             print()
                         case 2:
                             print()
                             print("Enter an amount to be deposited")
-                            depositAmount = int(input())
-                            savingsAccount.deposit(depositAmount)
+                            deposit_amount = int(input())
+                            savings_account.deposit(deposit_amount)
                             print()
                         case 3:
                             print()
-                            savingsAccount.displayBalance()
+                            savings_account.display_balance()
                             print()
                         case 4:
                             break

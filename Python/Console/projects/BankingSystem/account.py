@@ -28,21 +28,21 @@ class Account(metaclass = ABCMeta):
 class SavingsAccount(Account):
     
     def __init__(self):
-        self._savingsAccounts = {}
+        self._savings_accounts = {}
         
-    def createAccount(self, name, initialDeposit):
+    def create_account(self, name, initial_deposit):
         print()
-        self._accountNumber = randint(10000, 99999)
-        self._savingsAccounts[self._accountNumber] = [name, initialDeposit]
-        print("Account creation has been successful. Your account number is ", self._accountNumber)
+        self._account_number = randint(10000, 99999)
+        self._savings_accounts[self._account_number] = [name, initial_deposit]
+        print("Account creation has been successful. Your account number is ", self._account_number)
         print()
 
-    def authenticate(self, name, accountNumber):
+    def authenticate(self, name, account_number):
         print()
-        if accountNumber in self._savingsAccounts.keys():
-            if self._savingsAccounts[accountNumber][0] == name:
+        if account_number in self._savings_accounts.keys():
+            if self._savings_accounts[account_number][0] == name:
                 print("Authentication Successful")
-                self._accountNumber = accountNumber
+                self._account_number = account_number
                 print()
                 return True
             else:
@@ -54,22 +54,22 @@ class SavingsAccount(Account):
             print()
             return False
 
-    def withdraw(self, withdrawalAmount):
+    def withdraw(self, withdrawal_amount):
         print()
-        if withdrawalAmount > self._savingsAccounts[self._accountNumber][1]:
+        if withdrawal_amount > self._savings_accounts[self._account_number][1]:
             print("Insufficient balance")
         else:
-            self._savingsAccounts[self._accountNumber][1] -= withdrawalAmount
+            self._savings_accounts[self._account_number][1] -= withdrawal_amount
             print("Withdrawal was successful.")
-            self.displayBalance()
+            self.display_balance()
         print()
 
-    def deposit(self, depositAmount):
+    def deposit(self, deposit_amount):
         print()
-        self._savingsAccounts[self._accountNumber][1] += depositAmount
+        self._savings_accounts[self._account_number][1] += deposit_amount
         print("Deposit was successful.")
-        self.displayBalance()
+        self.display_balance()
         print()
 
-    def displayBalance(self):
-        print("Avaialble balance: ", self._savingsAccounts[self._accountNumber][1])
+    def display_balance(self):
+        print("Avaialble balance: ", self._savings_accounts[self._account_number][1])

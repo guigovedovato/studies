@@ -5,8 +5,8 @@ class Customer(Person):
 
     def __init__(self, name):
         super().__init__(name)
-        self._booksReading = 0
-        self._maxReadingBooks = 2
+        self._books_reading = 0
+        self._max_reading_books = 2
     
     def request_book(self):
         self._set_number_of_reading_books()
@@ -20,22 +20,22 @@ class Customer(Person):
     
     @property
     def reading_books(self):
-        return self._booksReading   
+        return self._books_reading   
     
     @property
     def is_reading(self):
-        return self._booksReading < self._maxReadingBooks
+        return self._books_reading < self._max_reading_books
     
     @property
     def has_borrowed(self):
-        return self._booksReading > 0  
+        return self._books_reading > 0  
     
     @property
     def max_reading_books(self):
-        return self._maxReadingBooks  
+        return self._max_reading_books  
     
     def _set_number_of_reading_books(self):
-        self._booksReading += 1
+        self._books_reading += 1
               
     def _release_number_of_reading_books(self):
-        self._booksReading -= 1
+        self._books_reading -= 1
