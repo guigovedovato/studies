@@ -12,11 +12,14 @@ import itertools
 # Find common items from two lists
 color1 = "Red", "Green", "Orange", "White"
 color2 = "Black", "Green", "White", "Pink"
+# & means INTERSECTION
 print(set(color1) & set(color2))
 
 # Find uncommon items from two lists
 color1 = "Red", "Green", "Orange", "White"
 color2 = "Black", "Green", "White", "Pink"
+# - means DIFERENCE
+# | means UNION
 print(set(color1) - set(color2) | set(color2) - set(color1))
 
 # Get the frequency of the elements in a list
@@ -46,3 +49,25 @@ for v in range(num_days):
     sales_list[v] = int(input(f"Enter the sales for day {v + 1}: "))
 
 print(sales_list)
+
+# Queue and Stack
+queue = [] # FIFO - First in first out
+stack = [] # FILO - First in last out
+
+print("Adding 10 elements:")
+for i in range(10):
+    print(f"Adding {i} in the queue")
+    queue.insert(0, i)
+    print(f"Adding {i} in the stack")
+    stack.append(i)
+    
+print("Queue", queue)
+print("Stack", stack)
+
+print("Removing elements:")
+for i in range(10):
+    print(f"Round {i}")
+    q = queue.pop()
+    print(f"Removed {q} of the queue")
+    s = stack.pop()
+    print(f"Removed {s} of the stack")
