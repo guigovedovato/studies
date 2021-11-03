@@ -10,7 +10,7 @@ for score in range(number_of_scores):
     
 average_score = sum(score_values)/number_of_scores
 
-print(f"The average is: {format(average_score,'.2f')}")
+print(f"The average is: {format(average_score,',.2f')}")
 print(f"The rounded average is: {sum(score_values)//number_of_scores}")
 
 # Enter the number of approved and disapproved students
@@ -20,5 +20,5 @@ approved = int(input("Enter the number of approved students: "))
 disapproved  = int(input("Enter the number of disapproved students: "))
 total_students = approved + disapproved
 
-print(f"The percentage of approved students is: {format(approved/total_students, '.0%')}")
-print(f"The percentage of disapproved students is: {format(disapproved/total_students, '.2%')}")
+print(f"The percentage of approved students is: {format(approved/total_students, ',.0%')}")
+print(f"The percentage of disapproved students is: {format(disapproved/total_students, ',.2%')}")
