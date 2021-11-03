@@ -1,3 +1,6 @@
+import locale
+
+
 # Enter the number of scores
 # Enter each score
 # Show scores in rounded number and 2 decimals
@@ -22,3 +25,19 @@ total_students = approved + disapproved
 
 print(f"The percentage of approved students is: {format(approved/total_students, ',.0%')}")
 print(f"The percentage of disapproved students is: {format(disapproved/total_students, ',.2%')}")
+
+# Enter the added amount
+# Enter each amount
+# show the sum of amount
+
+locale.setlocale(locale.LC_ALL, '')
+
+amounts = int(input("Enter the number of values: "))
+values = []
+
+for score in range(amounts):
+    values.append(float(input(f"Enter the value of value {score + 1}: $")))
+    
+average_amount = sum(values)
+
+print(f"The amount is: {locale.currency(average_amount, grouping=True)}")
