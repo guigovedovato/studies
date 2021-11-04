@@ -1,6 +1,6 @@
 # Fibonacci
 
-## 1. Through Generators
+## 1. Through Generators - Faster execution
 def fibo(num):
     a,b = 0, 1
     for i in range(0, num):
@@ -10,7 +10,7 @@ def fibo(num):
 
 print(list(fibo(10)))
 
-## 2. Through Recursion
+## 2. Through Recursion - Faster design
 def fibonacci_rec(n):
     if(n <= 1):
         return n

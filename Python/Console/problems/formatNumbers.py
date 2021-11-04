@@ -41,3 +41,5 @@ for score in range(amounts):
 average_amount = sum(values)
 
 print(f"The amount is: {locale.currency(average_amount, grouping=True)}")
+# Formatting integer
+print(f"The amount is: ${format(int(average_amount), ',d')}")

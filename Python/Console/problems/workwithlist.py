@@ -39,6 +39,8 @@ print(b)
 # Second smallest number in a list
 a = [1, 2, -8, -2, 0]
 print(sorted(a)[1])
+a.sort()
+print(a[1])
 
 # Create a list of sales based in user entrance
 # Add values to the list
