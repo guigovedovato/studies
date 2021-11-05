@@ -1,2 +1,4 @@
 https://www.w3schools.com/python
 https://towardsdatascience.com/write-clean-python-code-using-pipes-1239a0f3abf5
+https://github.com/mikeckennedy/mongodb-quickstart-course
+https://talkpython.fm/

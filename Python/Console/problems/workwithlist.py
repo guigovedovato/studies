@@ -52,7 +52,7 @@ for v in range(num_days):
 
 print(sales_list)
 
-# Queue and Stack
+# Queue Stack Deques
 queue = [] # FIFO - First in first out
 stack = [] # FILO - First in last out
 

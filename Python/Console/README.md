@@ -4,10 +4,9 @@ In this session, there are studies on console applications and algorithms
 
 ## Techs, Frameworks & Libraries
 
-### Version
+### Database
 
-* 3.10.0
+#### Mongo
 
-### IDE
-
-* VS Code
+* mongoengine
+* nose
