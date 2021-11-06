@@ -1,6 +1,3 @@
-import itertools
-
-
 # Question 1
 # You have array of integers, find the first missing positive integer (find the lowest positive integer that does not exist in the array). 
 # The array can contain duplicates and negative numbers as well.
@@ -33,9 +30,11 @@ print()
 # For example, if you given [10, 9,8 , 7] and k of 16, return true since 9 + 7 is 16. 
 # [1,4,6] and k = 18, return False, because no such two number that their sum equals 18
 def add_up_to_k(input, k):
-    for f, s in itertools.product(input, input):
-        if f + s == k:
-            return f"{f} + {s} is {k}"
+    index = len(input)
+    for f in range(index):
+        for s in range(f + 1, index):
+            if input[f] + input[s] == k:
+                return f"{input[f]} + {input[s]} is {k}"
     return f"No such two number that their sum equals {k}"
 
 
