@@ -73,3 +73,66 @@ for i in range(10):
     print(f"Removed {q} of the queue")
     s = stack.pop()
     print(f"Removed {s} of the stack")
+
+# Missing elements
+def finder(arr1,arr2):
+    
+    # Sort the arays
+    arr1.sort()
+    arr2.sort()
+    
+    # zip([1,2,3],[4,5,6])
+    # [(1,4),(2,5),(3,6)]
+    for num1, num2 in zip(arr1,arr2):
+        if num1 != num2:
+            return num1
+    
+    return arr1[-1]
+
+
+def preferred_finder(arr1,arr2):
+    
+    d = collections.defaultdict(int)
+    
+    for num in arr2:
+        d[num] += 1
+    
+    for num in arr1:
+        if d[num] == 0:
+            return num
+        else:
+            d[num] -= 1
+
+
+def xor_finder(arr1,arr2):
+    
+    result = 0
+    
+    for num in arr1+arr2:
+        result ^= num
+    
+    return result
+
+arr1 = [1,2,3,4,5,6,7]
+arr2 = [3,7,2,1,4,6]
+print(finder(arr1,arr2))
+print(preferred_finder(arr1,arr2))
+print(xor_finder(arr1,arr2))
+
+# largest continuous sum
+def largest_cont_sum(arr):
+    
+    if len(arr) == 0:
+        return 0
+    
+    max_sun = current_sum = arr[0]
+    
+    for num in arr[1:]:
+        current_sum = max(current_sum+num,num)
+        max_sun = max(current_sum,max_sun)
+    
+    return max_sun
+
+
+arr = [1,2,-1,3,4,10,10,-10,-1]
+print(largest_cont_sum(arr))

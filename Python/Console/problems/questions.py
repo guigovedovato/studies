@@ -5,20 +5,22 @@
 # The input [1, 2, 3] should give 4.
 # You can modify the input array in-place.
 def first_missing_positive(input):
-    positives = [x for x in sorted(set(input)) if x >= 0]
-    for p in range(len(positives)):
-        try:
-            output = positives[p] + 1
-            if output != positives[p + 1]:
-                return output
-        except IndexError:
+    input = [x for x in sorted(set(input)) if x >= 0]
+    for p in range(1,len(input)):
+        output = input[p - 1] + 1
+        if output != input[p]:
             return output
+    else:
+        output += 1
+    return output
 
 
 print("Question 1")
 lst = [9, 5, -2, 1]
 print(f"For list {lst} the first missing positive integer is:", first_missing_positive(lst))
 lst = [1, 2, 3, 3, 2]
+print(f"For list {lst} the first missing positive integer is:", first_missing_positive(lst))
+lst = [1, 2, 3, 4, 5]
 print(f"For list {lst} the first missing positive integer is:", first_missing_positive(lst))
 lst = [-1, -25, 37, 99, 115]
 print(f"For list {lst} the first missing positive integer is:", first_missing_positive(lst))
@@ -50,7 +52,6 @@ k = -10
 print(f"For list {lst} and K {k}:", add_up_to_k(lst, k))
 print()
 
-
 # Question 3
 # Given a list of integers, return a new list such that each element in the new list is the product of all the numbers in the original list 
 # except the element that in the same position of the new list element
@@ -74,3 +75,36 @@ lst = [3, 2, 1]
 print(f"The product list of {lst} is:", list(new_product_list(lst)))
 lst = [33, 126, 221]
 print(f"The product list of {lst} is:", list(new_product_list(lst)))
+print()
+
+# Question 4
+# Given an integer array, output all the unique pairs that sum up to a specific value k
+# So the imput:
+#   pair_sum([1,3,2,2],4)
+# would return 2 pairs:
+#   (1,3)
+#   (2,2)
+def pair_sum(arr,k):
+    
+    if len(arr)<2:
+        return
+    
+    # Sets for tracking
+    seen = set()
+    output = set()
+    
+    for num in arr:        
+        target = k-num        
+        if target not in seen:
+            seen.add(num)
+        else:
+            output.add((min(num,target),max(num,target)))
+        
+    #return len(output)
+    return '\n'.join(map(str,list(output)))
+
+
+print("Question 4")
+lst = [1,3,2,2]
+k = 4
+print(f"For list {lst} and K {k}:", pair_sum(lst, k), sep='\n')

@@ -66,3 +66,129 @@ print(text)
 print("World")
 print(text.rstrip('\n'))
 print("World")
+
+# Anagram
+def anagram(s1,s2):
+    
+    s1 = s1.replace(' ', '').lower()
+    s2 = s2.replace(' ', '').lower()
+    
+    return sorted(s1) == sorted(s2)
+
+
+def anagram_preferred(s1,s2):
+    
+    s1 = s1.replace(' ', '').lower()
+    s2 = s2.replace(' ', '').lower()
+    
+    # Edge Case  Check
+    if len(s1) != len(s2):
+        return False
+    
+    count = {}
+    
+    for letter in s1:
+        if letter in count:
+            count[letter] += 1
+        else:
+            count[letter] = 1
+
+    for letter in s2:
+        if letter in count:
+            count[letter] -= 1
+        else:
+            count[letter] = 1
+    
+    for k in count:
+        if count[k] != 0:
+            return False
+        
+    return True
+
+print(anagram('dog','God'))
+print(anagram_preferred('God','dog'))
+print(anagram('dog','good'))
+print(anagram_preferred('God','dig'))
+
+# reverse sentence
+def rev_word_reversed(s):
+    return " ".join(reversed(s.split()))
+
+
+def rev_word_arr(s):
+    return " ".join(s.split()[::-1])
+
+
+def rev_word_preferred(s):
+    
+    words = []
+    length = len(s)
+    spaces = [' ']
+    
+    i = 0
+    
+    while i < length:
+        if s[i] not in spaces:
+            word_start = i            
+            while i < length and s[i] not in spaces:
+                i += 1          
+            words.insert(0,s[word_start:i])
+        i += 1
+    return " ".join(words)
+
+
+print(rev_word_preferred("  Hello John   how are you    "))
+
+# String compression
+def compress(s):
+    
+    r = ""
+    l = len(s)
+    
+    if l == 0:
+        return r
+    
+    if l == 1:
+        return s+"1"
+    
+    cnt = 1
+    i = 1
+    
+    while i < l:
+        if s[i] == s[i-1]:
+            cnt += 1
+        else:
+            r = r+s[i-1]+str(cnt)
+            cnt = 1
+        i += 1
+    
+    r = r+s[i-1]+str(cnt)
+    
+    return r
+
+print(compress('AAaa'))
+print(compress('AAB'))
+print(compress('AAABBCCCCC'))
+
+# Unique characters
+def uni_char_set(s):
+    return len(set(s)) == len(s)
+
+
+def uni_char(s):
+    
+    chars = set()
+    
+    for let in s:
+        if let in chars:
+            return False
+        else:
+            chars.add(let)
+    
+    return True
+
+
+print("abcde:",uni_char_set('abcde'))
+print("abcdce:",uni_char_set('abcdce'))
+print("abcde:",uni_char('abcde'))
+print("abcdce:",uni_char('abcdce'))
