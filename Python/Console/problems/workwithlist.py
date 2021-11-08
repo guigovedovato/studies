@@ -52,9 +52,10 @@ for v in range(num_days):
 
 print(sales_list)
 
-# Queue Stack Deques
-queue = [] # FIFO - First in first out
-stack = [] # FILO - First in last out
+# Queue Stack Deque
+queue = [] # FIFO - First-in first-out
+stack = [] # LIFO - Last-in first-out
+deque = [] # Front-Rear
 
 print("Adding 10 elements:")
 for i in range(10):
@@ -62,9 +63,14 @@ for i in range(10):
     queue.insert(0, i)
     print(f"Adding {i} in the stack")
     stack.append(i)
+    print(f"Adding {i} in the deque front")
+    deque.append(i)
+    print(f"Adding {i+1} in the deque rear")
+    deque.insert(0, i+1)
     
 print("Queue", queue)
 print("Stack", stack)
+print("Deque", deque)
 
 print("Removing elements:")
 for i in range(10):
@@ -73,6 +79,10 @@ for i in range(10):
     print(f"Removed {q} of the queue")
     s = stack.pop()
     print(f"Removed {s} of the stack")
+    df = deque.pop()
+    print(f"Removed {df} of the deque front")
+    dr = deque.pop(0)
+    print(f"Removed {dr} of the deque rear")
 
 # Missing elements
 def finder(arr1,arr2):
@@ -136,3 +146,33 @@ def largest_cont_sum(arr):
 
 arr = [1,2,-1,3,4,10,10,-10,-1]
 print(largest_cont_sum(arr))
+
+# Balanced Parentheses Check
+def balance_check(s):
+    
+    if len(s)%2 != 0:
+        return False
+    
+    opening = set('([{')
+    matches = set([('(',')'),('[',']'),('{','}')])
+    stack = []
+    
+    for paren in s:
+        if paren in opening:
+            stack.append(paren)
+        else:
+            if len(stack) == 0:
+                return False
+            last_open = stack.pop()
+            if (last_open,paren) not in matches:
+                return False
+    
+    return len(stack) == 0
+
+
+parn = '[]'
+print(f"For parentesis '{parn}' the balance is:", balance_check(parn))
+parn = '[](){([[[]]])}'
+print(f"For parentesis '{parn}' the balance is:", balance_check(parn))
+parn = '()(){]}'
+print(f"For parentesis '{parn}' the balance is:", balance_check(parn))
