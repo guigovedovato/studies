@@ -1,8 +1,10 @@
-class DoublyNode(object):
+from singly_linked_list import Node
+
+
+class DoublyNode(Node):
     
     def __init__(self,value):
-        self.value = value
-        self.next_node = None
+        super().__init__(value)
         self.prev_node = None
     
 
