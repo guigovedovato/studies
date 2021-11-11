@@ -1,12 +1,11 @@
 # Factorial
 def fact(n):
     
-    # Base Case
-    if n == 0:
-        return 1
-    
-    else:
+    if n > 1:
         return n * fact(n-1)
+
+    # Base Case
+    return 1
 
 
 print("The Factorial of '5' is:",fact(5))
