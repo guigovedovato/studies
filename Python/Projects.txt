@@ -1,9 +1,0 @@
-Content aggregator
-Developers should try this Python project in 2021 known as a content aggregator to gain strong practical experience for a better future. There are multiple functionalities of the project in this programming language— display latest blogs, update Python blogs, update other programming language blogs, update hiring notifications, and COVID-19 news. Developers can build a content aggregator web app through scrapping websites as well as serving the content through this programming language on the web or an app. There are multiple public repositories that help developers in creating this Python project without any external trouble.
-
-URL shortener
-A URL shortener is one of the trending Python projects for developers in 2021 with an aim to reduce the length of necessary URLs. Developers can create a Python library to help other users shorten the URL. This library can also help to shorten multiple different URLs in a text format without any trouble in the system. Developers should be aware of the availability of url_shortener.py in the working directory and write certain code for this programming language project efficiently.
-
-Site connectivity checker
-Developers can start with a site connectivity checker with Python for checking site connection in a background mode. There is a requirement for Python3 and Python libraries with a site connectivity checker repository. Developers can provide the status of a website by visiting the URL through a site connectivity checker project. This Python project helps in visiting the URL on a daily basis to return accurate results efficiently. The socket module helps in achieving this project with docopt, click and argparse frameworks for additional features.
-

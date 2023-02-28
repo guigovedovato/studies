@@ -1,9 +1,0 @@
-https://www.w3schools.com/python
-https://github.com/mikeckennedy/mongodb-quickstart-course
-https://talkpython.fm/
-https://www.analyticsinsight.net/top-advanced-usage-of-python-programming-that-you-must-know/
-https://www.pygame.org/wiki/tutorials
-https://levelup.gitconnected.com/10-fantastic-python-packages-af2a16a1183a
-https://www.freecodecamp.org/news/python-looping-functions/
-https://www.freecodecamp.org/news/python-map-explained-with-examples/
-https://www.freecodecamp.org/news/python-json-how-to-convert-a-string-to-json/
